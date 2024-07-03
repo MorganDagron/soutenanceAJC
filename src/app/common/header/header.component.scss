@@ -1,0 +1,20 @@
+.header {
+    max-width: 900px;
+    margin: 30px auto;
+    &-nav {
+        &__primary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+
+    &__link {
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        font-weight: 200;
+    }
+
+
+}
