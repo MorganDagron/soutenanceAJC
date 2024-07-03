@@ -1,0 +1,51 @@
+@import '../../../styles.scss';
+
+.wrapper-connexion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    width: 100vw;
+}
+
+.connexion {
+    width: 100%;
+    max-width: 700px;
+
+    .h1 {
+        background: linear-gradient(to right, #E6C776, #BB9D56, #886C31, #D1AD5B, #886C31);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    &__ctn-input {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+
+        label {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+    }
+
+        
+    p {
+        color: white;
+        text-align: center;
+    }
+
+    a {
+        color: white;
+    }
+
+    .button {
+        display: block;
+        margin: 100px auto 50px auto;
+        width: 400px;
+        height: 55px;
+        font-weight: 600;
+        font-size: 2.2rem;
+    }
+}
