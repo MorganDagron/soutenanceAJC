@@ -1,1 +1,93 @@
-/* You can add global styles to this file, and also import other style files */
+// couleurs
+$primary: #1c4d31;
+$green:#327040;
+$green-light:#548058;
+$green-dark: #0b1a17;
+
+$secondary: #e6c776;
+$yellow: #d1ad5b;
+$yellow-dark: #d1ad5b;
+
+$black: #080a0a;
+
+
+// fonts 
+$font-primary: "Kanit", Arial, Helvetica, sans-serif;
+$font-secondary: "Saira_SC", Arial, Helvetica, sans-serif;
+
+$font-title: "Kanit",Arial, Helvetica, sans-serif;
+
+// Kanit
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;0,300;0,500;0,600;1,500&display=swap');
+
+.kanit-xlight {
+    font-family: "Kanit", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  .kanit-light {
+    font-family: "Kanit", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  // 500
+  .kanit-medium {
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .kanit-semibold {
+    font-family: "Kanit", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .kanit-medium-italic {
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+// Saira
+  @import url('https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@100;300;400;500&display=swap');
+
+  .saira-sc-thin {
+    font-family: "Saira_SC", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  .saira-sc-light {
+    font-family: "Saira_SC", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .saira-sc-regular {
+    font-family: "Saira_SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .saira-sc-medium {
+    font-family: "Saira_SC", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $font-primary;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+  }
