@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap");
+
+.exo-medium {
+  font-family: "Exo", sans-serif;
+  font-style: normal;
+}
+
+.apropos {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5% auto;
+
+  background: rgba(50, 112, 64, 0.54);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  border: 1px solid rgba(50, 112, 64, 0.05);
+
+  p {
+    padding: 5%;
+    text-align: center;
+    font-size: 2.5rem;
+  }
+}
+
+.bigtitle {
+  font-size: 5rem;
+}
