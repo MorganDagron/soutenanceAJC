@@ -1,0 +1,15 @@
+<div class="container">
+    <h1 class="gradient-title bigtitle">Blog</h1>
+</div>
+
+<div class="cards-container">
+  <div class="card" *ngFor="let article of listArticles">
+    <div class="containerImage">
+    <img [src]="article.imageUrl" alt="{{ article.titre }}" />
+    </div>
+    <h2>{{ article.titre }}</h2>
+    <p>{{ article.contenu }}</p>
+    <p>{{ article.categorie }}</p>
+    <p>{{ article.creationDate | date }}</p>
+  </div>
+</div>

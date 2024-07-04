@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap");
+
+.exo-medium {
+  font-family: "Exo", sans-serif;
+  font-style: normal;
+}
+
+.apropos {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5% auto;
+
+  background: rgba(50, 112, 64, 0.54);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  border: 1px solid rgba(50, 112, 64, 0.05);
+
+  p {
+    padding: 5%;
+    text-align: center;
+    font-size: 2.5rem;
+  }
+}
+
+.bigtitle {
+  font-size: 5rem;
+}
+
+/* Style pour le conteneur de toutes les cards */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Espace entre les cards */
+  justify-content: center; /* Centre les cards horizontalement */
+}
+
+/* Style pour chaque card */
+.card {
+  background-color: #fff; /* Couleur de fond des cards */
+  border: 1px solid #ddd; /* Bordure des cards */
+  border-radius: 8px; /* Coins arrondis */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  padding: 20px; /* Espacement interne */
+  width: calc(50% - 20px); /* Deux cards par ligne avec espacement */
+  box-sizing: border-box; /* Inclut les bordures et le padding dans la largeur */
+    background: rgba(50, 112, 64, 0.54);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  border: 1px solid rgba(50, 112, 64, 0.05);
+  margin-bottom: 2rem;
+}
+
+/* Style pour le contenu de chaque card */
+.card h2 {
+  margin-top: 2rem; /* Enlève la marge supérieure */
+}
+
+.card p {
+  margin-bottom: 0; /* Enlève la marge inférieure */
+}
+.card img {
+    left:0;
+    top:0;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+}
+.containerImage{
+height: 300px;
+width: 100%;
+position: relative;
+overflow: hidden;
+}
+
