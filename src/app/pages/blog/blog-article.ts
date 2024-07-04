@@ -5,6 +5,7 @@ export class BlogArticle {
   creationDate: Date;
   categorie: string;
 
+  BlogArticle() {}
   constructor(
     imageUrl: string,
     titre: string,
