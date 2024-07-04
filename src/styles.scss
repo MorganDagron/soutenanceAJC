@@ -4,10 +4,6 @@ html {
   font-size: 62.5%;
 }
 
-body {
-  margin: 0;
-}
-
 *,
 *:before,
 *:after {
@@ -238,18 +234,14 @@ p {
 // @tailwind utilities;
 
 body {
+  margin: 0 auto;
   color: #e6c776;
   font-family: $font-primary;
-  background: url("./assets/images/index_mockup.png"),
-    linear-gradient(to right, #1c4d31, #0b1a17);
+  font-family: $font-primary;
   background-repeat: repeat;
   background-position: center;
   background-size: cover;
-    color: #e6c776;
-    font-family: $font-primary;
-  //background: url("./assets/img/index_mockup_green.jpg "), linear-gradient(to right, #1c4d31, #0b1a17);
-    
-    background: linear-gradient(to right, #1c4d31, #0b1a17);
+  background: linear-gradient(to right, #1c4d31, #0b1a17);
 }
 
 .bg {
@@ -419,7 +411,11 @@ label {
 
 input {
   height: 55px;
+  padding-left: 20px;
   border: none;
   border-radius: 10px;
   background-color: #797047;
+  &::placeholder {
+    color: white;
+  }
 }

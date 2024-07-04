@@ -1,1 +1,36 @@
-<p>inscription works!</p>
+<div class="wrapper-inscription">
+    <div class="inscription">
+
+        <p class="h1">Inscription</p>
+
+        <div class="inscription__ctn-input">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" placeholder="nom">
+        </div>
+        
+        <div class="inscription__ctn-input">
+            <label for="prenom">Prenom</label>
+            <input type="text" id="prenom" placeholder="Prenom">
+        </div>
+
+        <div class="inscription__ctn-input">
+            <label for="email">Email</label>
+            <input type="text" id="email" placeholder="Email">
+        </div>
+
+        <div class="inscription__ctn-input">
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" placeholder="Mot de passe">
+        </div>
+
+        <div class="inscription__ctn-input">
+            <label for="confirmpassword">Confirmation du mot <br>de passe</label>
+            <input type="password" id="confirmpassword" placeholder="Confirmer mot de passe">
+        </div>
+
+        <button class="button">S'inscrire</button>
+
+        <p>Vous possédez déja un compte ? <a  [routerLink]="['/connexion']">Connectez-vous</a></p>
+
+    </div>
+</div>
