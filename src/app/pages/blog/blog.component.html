@@ -1,11 +1,92 @@
 <div class="container">
-    <h1 class="gradient-title bigtitle">Blog</h1>
+  <h1 class="gradient-title bigtitle">Blog</h1>
 </div>
-
+<div class="container">
+  <button
+    class="secondary-button"
+    (click)="toggleActive($event)"
+    [class.active]="isActive('Tous')"
+    value="Tous"
+  >
+    Tous
+  </button>
+  <button
+    class="secondary-button"
+    (click)="toggleActive($event)"
+    [class.active]="isActive('Tendances')"
+    value="Tendances"
+  >
+    Tendances
+  </button>
+  <button
+    class="secondary-button"
+    (click)="toggleActive($event)"
+    [class.active]="isActive('Guide d\'achat')"
+    value="Guide d'achat"
+  >
+    Guide d'achat
+  </button>
+  <button
+    class="secondary-button"
+    (click)="toggleActive($event)"
+    [class.active]="isActive('Entretien')"
+    value="Entretien"
+  >
+    Entretien
+  </button>
+  <button
+    class="secondary-button"
+    (click)="toggleActive($event)"
+    [class.active]="isActive('Histoire')"
+    value="Histoire"
+  >
+    Histoire
+  </button>
+  <button
+    class="secondary-button"
+    (click)="toggleActive($event)"
+    [class.active]="isActive('Artisanat')"
+    value="Artisanat"
+  >
+    Artisanat
+  </button>
+  <button
+    class="secondary-button"
+    (click)="toggleActive($event)"
+    [class.active]="isActive('Matériaux')"
+    value="Matériaux"
+  >
+    Matériaux
+  </button>
+  <button
+    class="secondary-button"
+    (click)="toggleActive($event)"
+    [class.active]="isActive('Ethique')"
+    value="Ethique"
+  >
+    Ethique
+  </button>
+  <button
+    class="secondary-button"
+    (click)="toggleActive($event)"
+    [class.active]="isActive('Mode')"
+    value="Mode"
+  >
+    Mode
+  </button>
+  <button
+    class="secondary-button"
+    (click)="toggleActive($event)"
+    [class.active]="isActive('bien-etre')"
+    value="bien-etre"
+  >
+    bien-être
+  </button>
+</div>
 <div class="cards-container">
-  <div class="card" *ngFor="let article of listArticles">
+  <div class="card" *ngFor="let article of getFilteredArticles()">
     <div class="containerImage">
-    <img [src]="article.imageUrl" alt="{{ article.titre }}" />
+      <img [src]="article.imageUrl" alt="{{ article.titre }}" />
     </div>
     <h2>{{ article.titre }}</h2>
     <p>{{ article.contenu }}</p>

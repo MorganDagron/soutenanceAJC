@@ -13,6 +13,7 @@ import { InscriptionComponent } from './pages/inscription/inscription.component'
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { BlogComponent } from './pages/blog/blog.component';
+import { ArticleComponent } from './pages/article/article.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { BlogComponent } from './pages/blog/blog.component';
     InscriptionComponent,
     HeaderComponent,
     FooterComponent,
-    BlogComponent
+    BlogComponent,
+    ArticleComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

@@ -7,6 +7,7 @@ import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { BlogComponent } from './pages/blog/blog.component';
+import { ArticleComponent } from './pages/article/article.component';
 
 const routes: Routes = [
   { path: 'header', component: HeaderComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'connexion', component: ConnexionComponent },
   { path: 'inscription', component: InscriptionComponent },
   { path: 'blog', component: BlogComponent },
+  { path: 'article', component: ArticleComponent }
 ];
 
 @NgModule({

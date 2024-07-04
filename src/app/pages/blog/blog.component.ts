@@ -72,4 +72,35 @@ export class BlogComponent {
       'Éthique'
     ),
   ];
+  activeCategories: string[] = [];
+
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  toggleActive(event: Event): void {
+    const button = event.target as HTMLButtonElement;
+    const category = button.value;
+
+    if (this.activeCategories.includes(category)) {
+      this.activeCategories = this.activeCategories.filter(
+        (cat) => cat !== category
+      );
+    } else {
+      this.activeCategories.push(category);
+    }
+  }
+
+  isActive(category: string): boolean {
+    return this.activeCategories.includes(category);
+  }
+
+  getFilteredArticles(): any[] {
+    if (this.activeCategories.length === 0) {
+      return this.listArticles;
+    }
+    return this.listArticles.filter((article) =>
+      this.activeCategories.includes(article.categorie)
+    );
+  }
 }
