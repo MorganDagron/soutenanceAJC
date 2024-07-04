@@ -4,10 +4,6 @@ html {
   font-size: 62.5%;
 }
 
-body {
-  margin: 0;
-}
-
 *,
 *:before,
 *:after {
@@ -83,9 +79,6 @@ $font-title: "Governor", "Kanit", Arial, Helvetica, sans-serif;
     font-style: italic;
 }
 
-  
-
-
 // Kanit
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap');
 
@@ -122,7 +115,6 @@ $font-title: "Governor", "Kanit", Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-style: normal;
 }
-
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -169,115 +161,112 @@ p {
     $font-primary: "Exo", Arial, Helvetica, sans-serif;
 }
 
-// truc de dylan note partagées
-/** @type {import('tailwindcss').Config} */
-// import typographyPlugin from '@tailwindcss/typography';
-// export default {
-//   content: [
-//     "./index.html",
-//     "./src/**/*.{js,ts,jsx,tsx}",
-//   ],
-//   theme: {
-//     extend: {
-//       colors: {
-//         'laiton': '#E6C776',
-//         'laiton_vieilli': '#D1AD5B',
-//         'bronze_vieilli': '#886C31',
-//         'bronze': '#907338',
-//         'dark_green': '#0B1A17',
-//         'dark_forest': '#080A0A',
-//         'grass': '#4F6948',
-//         'ambiant_green': '#1C4D31',
-//         'palmer_leaf': '#327040',
-//         'banana_leaf':'#577659',
-//         'coconut leaf':'#606842',
-//         'border_green':'#548058',
-//         'green-opacity':'rgba(84, 128, 88, 0.5)',
-//       },
-//       fontFamily: {
-//         'kanit': ['Kanit', 'sans-serif'],
-//         'exo': ['Exo', 'sans-serif'],
-//       },
-//       backgroundImage: {
-//         'title-gradient': 'linear-gradient(to bottom, rgba(230, 199, 118, 1) 0%, rgba(187, 157, 86, 1) 25%, rgba(136, 108, 49, 1) 50%, rgba(209, 173, 91, 1) 75%, rgba(136, 108, 49, 1) 100%)',
-//         'custom-background': "url('/src/assets/background3.png')",
-//       },
-//       borderRadius: {
-//       },
-//       gradients: {
-//         'button-border': ['to bottom', 'rgba(230, 199, 118, 1) 0%', 'rgba(187, 157, 86, 1) 25%', 'rgba(136, 108, 49, 1) 50%', 'rgba(209, 173, 91, 1) 75%', 'rgba(136, 108, 49, 1) 100%'],
-//       },
-//       typography: (theme) => ({
-//         DEFAULT: {
-//           css: {
-//             'h1, h2': {
-//               fontFamily: `${theme('fontFamily.kanit')}`,
-//             },
-//             'h3, h4, h5, h6': {
-//               fontFamily: `${theme('fontFamily.exo')}`,
-//             },
-//             'p': {
-//               fontFamily: `${theme('fontFamily.exo')}`,
-//             }
-//           },
-//         },
-//       }),
-//     }
-//   },
-//   plugins: [
-//     typographyPlugin,
-//     // autres plugins si nécessaire
-//   ],
-// }
+a {
+  text-decoration: none;
+  color: $laiton;
+  &:visited {
+    color: $laiton;
+  }
+  &:hover {
+    color: $laiton-vieilli;
+  }
+}
 
-/* styles.css */
-// @import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap');
-
-// @tailwind base;
-// @tailwind components;
-// @tailwind utilities;
+.main {
+  margin: 0 auto;
+  padding: 0 2%;
+}
 
 body {
+  margin: 0 auto;
   color: #e6c776;
   font-family: $font-primary;
-  background: url("./assets/images/index_mockup.png"), $dark-green;
-    //linear-gradient(to right, #1c4d31, #0b1a17);
-  background-repeat: repeat;
-  background-position: center;
-  background-size: cover;
-    color: #e6c776;
-    font-family: $font-primary;
-  //background: url("./assets/img/index_mockup_green.jpg "), linear-gradient(to right, #1c4d31, #0b1a17);
-    
-    background: linear-gradient(to right, #1c4d31, #0b1a17);
+  background: linear-gradient(to right, #1c4d31, #0b1a17) repeat center / cover;
 }
 
 .bg {
     min-height: 100vh;
-    background: url("./assets/img/bg_left.png") top left no-repeat,
-            url("./assets/img/bg_right.png") top right no-repeat;
-    background-size: auto 100vh, auto 100vh;
+    &::before,
+    &::after {
+      content:"";
+      display: block;
+      position: fixed;
+      top: 0;
+      height: 100vh;
+      width: 100vw;
+      z-index: -1
+    }
+    &:before {
+      left: 0;
+      background: url("./assets/img/bg_left.png") top left no-repeat;
+      background-size: auto 100vh;
+    }
+    &:after {
+      right: 0;
+      background:  url("./assets/img/bg_right.png") top right no-repeat;
+      background-size: auto 100vh;
+    }
 }
 
-// /* H1 */
-// .gradient-title {
-//     background-image: linear-gradient(0.4turn, rgba(230, 199, 118, 1) 0%, rgba(187, 157, 86, 1) 25%, rgba(136, 108, 49, 1) 50%, rgba(209, 173, 91, 1) 75%, rgba(136, 108, 49, 1) 100%);
-//     color: transparent;
-//     background-clip: text;
-//     -webkit-background-clip: text;
-//     -webkit-text-fill-color: transparent;
-// }
+.container {
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  margin: 5%;
+  padding: 0 2%;
+}
 
-/* Bouton gradient */
-@keyframes rotate {
-  100% {
-    transform: rotate(1turn);
+
+
+.gradient-title {
+  color: transparent;
+  background-image: linear-gradient(
+    0.4turn,
+    rgba(230, 199, 118, 1) 0%,
+    rgba(187, 157, 86, 1) 25%,
+    rgba(136, 108, 49, 1) 50%,
+    rgba(209, 173, 91, 1) 75%,
+    rgba(136, 108, 49, 1) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-h1 {
+  font-size: 3.8rem;
+}
+
+.glassmorphism {
+  background: rgba(50, 112, 64, 0.54);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  border: 1px solid rgba(50, 112, 64, 0.05);
+} 
+
+/******  Style forms et co  ********/
+
+label {
+  font-weight: 400;
+}
+
+input {
+  height: 55px;
+  padding-left: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #797047;
+  &::placeholder {
+    color: white;
   }
 }
 
+
 .button {
   position: relative;
-  z-index: 0;
+  z-index: 0; 
   padding: 1rem;
   overflow: hidden;
   border-radius: 10px;
@@ -324,6 +313,12 @@ body {
   }
 }
 
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
 .secondary-button {
   background-color: #d1ad5b;
   color: #080a0a;
@@ -336,119 +331,11 @@ body {
   }
 }
 
-a {
-  text-decoration: none;
-  color: $laiton;
-  &:visited {
-    color: $laiton;
-  }
-  &:hover {
-    color: $laiton-vieilli;
-  }
-}
-
-.main {
-  margin: 0 auto;
-  padding: 0 2%;
-}
-
-.container {
-  flex-direction: row;
-  display: flex;
-  justify-content: center;
-  margin: 5%;
-  padding: 0 2%;
-}
-
-.container {
-  flex-direction: row;
-  display: flex;
-  justify-content: center;
-  margin: 5%;
-  padding: 0 2%;
-}
-
+/**** Home ***/
 .logo {
   width: 300px;
   height: 300px;
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  background-size: cover;
-  background-image: url("assets/images/logo.png");
-}
-
-.gradient-title {
-  background-image: linear-gradient(
-    0.4turn,
-    rgba(230, 199, 118, 1) 0%,
-    rgba(187, 157, 86, 1) 25%,
-    rgba(136, 108, 49, 1) 50%,
-    rgba(209, 173, 91, 1) 75%,
-    rgba(136, 108, 49, 1) 100%
-  );
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-h1 {
-  font-size: 3.8rem;
-}
-
-.glassmorphism {
-  background: rgba(50, 112, 64, 0.54);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(7.5px);
-  -webkit-backdrop-filter: blur(7.5px);
-  border: 1px solid rgba(50, 112, 64, 0.05);
-}
-
-.logo {
-  width: 300px;
-  height: 300px;
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  background-size: cover;
-  background-image: url("assets/images/logo.png");
-}
-
-.gradient-title {
-  background-image: linear-gradient(
-    0.4turn,
-    rgba(230, 199, 118, 1) 0%,
-    rgba(187, 157, 86, 1) 25%,
-    rgba(136, 108, 49, 1) 50%,
-    rgba(209, 173, 91, 1) 75%,
-    rgba(136, 108, 49, 1) 100%
-  );
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-h1 {
-  font-size: 3.8rem;
-}
-
-.glassmorphism {
-  background: rgba(50, 112, 64, 0.54);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(7.5px);
-  -webkit-backdrop-filter: blur(7.5px);
-  border: 1px solid rgba(50, 112, 64, 0.05);
-}
-
-label {
-  font-weight: 400;
-}
-
-input {
-  height: 55px;
-  border: none;
-  border-radius: 10px;
-  background-color: #797047;
+  img {
+    width: 100%;
+  }
 }
