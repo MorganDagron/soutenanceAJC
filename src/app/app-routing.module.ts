@@ -6,6 +6,7 @@ import { InscriptionComponent } from './pages/inscription/inscription.component'
 import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
+import { BlogComponent } from './pages/blog/blog.component';
 
 const routes: Routes = [
   { path: 'header', component: HeaderComponent },
@@ -13,8 +14,9 @@ const routes: Routes = [
   { path: 'apropos', component: AproposComponent },
   { path: 'accueil', component: AccueilComponent },
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
-  {path:'connexion',component:ConnexionComponent},
-  {path:'inscription',component:InscriptionComponent}
+  { path: 'connexion', component: ConnexionComponent },
+  { path: 'inscription', component: InscriptionComponent },
+  { path: 'blog', component: BlogComponent },
 ];
 
 @NgModule({

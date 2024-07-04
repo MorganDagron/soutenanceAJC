@@ -240,8 +240,8 @@ p {
 body {
   color: #e6c776;
   font-family: $font-primary;
-  background: url("./assets/images/index_mockup.png"),
-    linear-gradient(to right, #1c4d31, #0b1a17);
+  background: url("./assets/images/index_mockup.png"), $dark-green;
+    //linear-gradient(to right, #1c4d31, #0b1a17);
   background-repeat: repeat;
   background-position: center;
   background-size: cover;
