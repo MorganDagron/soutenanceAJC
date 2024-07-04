@@ -47,7 +47,7 @@
   padding: 20px; /* Espacement interne */
   width: calc(50% - 20px); /* Deux cards par ligne avec espacement */
   box-sizing: border-box; /* Inclut les bordures et le padding dans la largeur */
-    background: rgba(50, 112, 64, 0.54);
+  background: rgba(50, 112, 64, 0.54);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(7.5px);
@@ -65,20 +65,20 @@
   margin-bottom: 0; /* Enlève la marge inférieure */
 }
 .card img {
-    left:0;
-    top:0;
-    width: 100%;
-    overflow: hidden;
-    position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
 }
-.containerImage{
-height: 300px;
-width: 100%;
-position: relative;
-overflow: hidden;
+.containerImage {
+  height: 300px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .active {
-  background-color: red;
+  background-color: #886c31;
   color: white;
 }
