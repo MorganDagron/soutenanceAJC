@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from '../user/user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-inscription',
@@ -13,34 +14,40 @@ export class InscriptionComponent {
 
   constructor(private fb: FormBuilder) {
     this.inscriptionForm = this.fb.group({
-      nom: ['', [Validators.required]],
-      prenom: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      nom: ['', 
+        //[Validators.required]
+      ],
+      prenom: ['', 
+        //Validators.required
+      ],
+      email: ['', 
+        //[Validators.required, Validators.email]
+        ],
       telephone: [
         '',
-        [
-          Validators.required,
-          Validators.pattern('^[0-9]*$'),
-          Validators.maxLength(10),
-          Validators.minLength(10),
-        ],
+        // [
+        //   Validators.required,
+        //   Validators.pattern('^[0-9]*$'),
+        //   Validators.maxLength(10),
+        //   Validators.minLength(10),
+        // ],
       ],
       password: [
         '',
-        [
-          Validators.required,
-          Validators.minLength(6),
-          Validators.maxLength(20),
-        ],
+        // [
+        //   Validators.required,
+        //   Validators.minLength(6),
+        //   Validators.maxLength(20),
+        // ],
       ],
       confirmpassword: [
         '',
-        Validators.required,
-        [
-          Validators.required,
-          Validators.minLength(6),
-          Validators.maxLength(20),
-        ],
+        // Validators.required,
+        // [
+        //   Validators.required,
+        //   Validators.minLength(6),
+        //   Validators.maxLength(20),
+        // ],
       ],
     });
   }
@@ -64,7 +71,9 @@ export class InscriptionComponent {
       this.user.telephone = this.inscriptionForm.value.telephone;
       sessionStorage.setItem('user', JSON.stringify(this.user));
       console.log(this.user);
+      this.inscriptionForm.reset();
     } else {
+      this.inscriptionForm.reset();
       console.log('Form is invalid');
     }
   }
