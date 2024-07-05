@@ -1,7 +1,47 @@
+// couleurs
+$primary: #1c4d31;
+
+$black: #080a0a;
+$laiton: #e6c776;
+$laiton-vieilli: #d1ad5b;
+$bronze: #907338;
+$bronze-vieilli: #886c31;
+$dark-green: #0b1a17;
+$dark-forest: #080a0a;
+
+$grass: #4f6948;
+$ambiant-green: #1c4d31;
+$palmer-leaf: #327040;
+$banana-leaf: #577659;
+$coconut-leaf: #606842;
+$border-green: #548058;
+
 /*** CLASSICO ***/
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+
+  a {
+    text-decoration: none;
+    text-decoration-line: none;
+    color: $laiton;
+    &:visited {
+      color: $laiton;
+    }
+    &:hover {
+      color: $laiton-vieilli;
+    }
+    &:active,
+    &:focus,
+    &:hover,
+    &:visited {
+      text-decoration: none;
+      
+    }
+  }
+  a[href]{
+    text-decoration: none;
+  }
 }
 
 *,
@@ -20,23 +60,7 @@ ul {
   display: none;
 }
 
-// couleurs
-$primary: #1c4d31;
 
-$black: #080a0a;
-$laiton: #e6c776;
-$laiton-vieilli: #d1ad5b;
-$bronze: #907338;
-$bronze-vieilli: #886c31;
-$dark-green: #0b1a17;
-$dark-forest: #080a0a;
-
-$grass: #4f6948;
-$ambiant-green: #1c4d31;
-$palmer-leaf: #327040;
-$banana-leaf: #577659;
-$coconut-leaf: #606842;
-$border-green: #548058;
 
 // fonts
 $font-primary: "Exo", "Saira_SC", Arial, Helvetica, sans-serif;
@@ -161,16 +185,7 @@ p {
     $font-primary: "Exo", Arial, Helvetica, sans-serif;
 }
 
-a {
-  text-decoration: none;
-  color: $laiton;
-  &:visited {
-    color: $laiton;
-  }
-  &:hover {
-    color: $laiton-vieilli;
-  }
-}
+
 
 .main {
   margin: 0 auto;
@@ -339,3 +354,5 @@ input {
     width: 100%;
   }
 }
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

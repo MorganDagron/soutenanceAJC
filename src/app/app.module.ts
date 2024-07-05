@@ -16,6 +16,7 @@ import { FooterComponent } from './common/footer/footer.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { ArticleComponent } from './pages/article/article.component';
 import { UserComponent } from './pages/user/user.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { UserComponent } from './pages/user/user.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

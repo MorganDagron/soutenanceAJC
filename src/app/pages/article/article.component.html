@@ -1,37 +1,103 @@
-<article class="article">
-    <div class="ctn-img">
-        <img src="https://picsum.photos/300" alt="Image temp">
-    </div>
-    <div class="article__produit">
-        <div class="article__breadcumb">
-            <a href="">Collection</a><span class="seperator">/</span><a href="">Parure</a>
+<div class="page__article">    
+    
+    <article class="article"> 
+        <div class="ctn-img">
+            <img src="https://picsum.photos/300" alt="Image temp">
         </div>
-        <h1 class="article__title">Titre de l'article</h1>
-        <p class="article__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, voluptates. Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, voluptates.
-        <p class="article__prix">59,99€</p>
-
-        <div class="article__choix">
-
-            <div class="article__inputs">
-                <label for="matiere">Quantité : </label>
-                <select name="matiere" id="matiere">
-                    <option value="or">Or</option>
-                    <option value="acier">Acier</option>
-                    <option value="adamantium">Adamantium</option>
-                </select>
+        <div class="ctn-infos">
+            <div class="article__breadcumb">
+                <a href="">Collection</a><span class="seperator">/</span><a href="">Parure</a>
+            </div>
+            <h1 class="article__title">Titre de l'article</h1>
+            <p class="article__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, voluptates. Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, voluptates.
+            <p class="article__prix">59,99€</p>
+    
+            <div class="article__choix">
+    
+                <div class="article__inputs">
+                    <label for="matiere">Quantité : </label>
+                    <select name="matiere" id="matiere">
+                        <option value="or">Or</option>
+                        <option value="acier">Acier</option>
+                        <option value="adamantium">Adamantium</option>
+                    </select>
+                </div>
+    
+                <div class="article__inputs">
+                    <label for="taille">Choix de la taille :</label>
+                    <select name="taille" id="taille">
+                        <option value="48">48</option>
+                        <option value="50">50</option>
+                        <option value="52">52</option>
+                    </select>
+                </div>
             </div>
 
-            <div class="article__inputs">
-                <label for="taille">Choix de la taille :</label>
-                <select name="taille" id="taille">
-                    <option value="48">48</option>
-                    <option value="50">50</option>
-                    <option value="52">52</option>
-                </select>
-            </div>
-
+            <button class="button">Ajouter au panier</button>
         </div>
 
-        <button class="button">Ajouter au panier</button>
-    </div>
-</article>
+    </article>
+ 
+    <section class="carousel-article">
+        <h2 class="carousel-article__title">Autres articles de la collection</h2>
+        <div id="recipeCarousel" class="carousel slide glassmorphism" data-bs-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                        <div class="card">
+                            <div class="card-img">
+                                <img src="https://picsum.photos/470" class="img-fluid">
+                                <h2 class="card-title"><a href="">Nom du bijoux</a></h2>
+                            </div>
+                            <div class="card-img">
+                                <img src="https://picsum.photos/471" class="img-fluid">
+                                <h2 class="card-title"><a href="">Nom du bijoux</a></h2>
+                            </div>
+                            <div class="card-img">
+                                <img src="https://picsum.photos/469" class="img-fluid">
+                                <h2 class="card-title"><a href="">Nom du bijoux</a></h2>
+                            </div>
+                        </div>
+                </div>
+
+                
+                <div class="carousel-item ">
+                        <div class="card">
+                            <div class="card-img">
+                                <img src="https://picsum.photos/470" class="img-fluid">
+                                <h2 class="card-title"><a href="">Nom du bijoux</a></h2>
+                            </div>
+                            <div class="card-img">
+                                <img src="https://picsum.photos/471" class="img-fluid">
+                                <h2 class="card-title"><a href="">Nom du bijoux</a></h2>
+                            </div>
+                            <div class="card-img">
+                                <img src="https://picsum.photos/469" class="img-fluid">
+                                <h2 class="card-title"><a href="">Nom du bijoux</a></h2>
+                            </div>
+                        </div>
+                </div>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#recipeCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <section class="article-more">
+        <article >
+            <h2 class="article-more__title">En savoir plus sur la collection</h2> 
+            <div class="article-more__content">
+                <div class="article-more__ctn-img">
+                    <img src="./assets/img/read_more.png" alt="">
+                </div>
+                <p class="article-more__texte">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas, possimus natus iusto quis, minus unde corporis, expedita ex at optio inventore accusantium cupiditate rerum est incidunt iure ipsum vel aspernatur.</p>
+            </div>
+        </article>
+    </section>
+</div>

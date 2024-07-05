@@ -4,8 +4,12 @@
 .article {
     display: flex;
     max-width: 900px;
-    margin : 200px auto 100px auto;
+    margin : 200px auto 140px auto;
     //background-color: rgba(255,255,255,.1);
+
+    .ctn-infos {
+        padding-left: 40px;
+    }
 
     &__breadcumb {
         font-size: 1.6rem;
@@ -33,6 +37,7 @@
 
     &__description {
         font-size: 1.6rem;
+        color: $laiton;
     }
 
     &__prix {
@@ -45,6 +50,10 @@
         display: block;
         font-size: 1.6rem;
         color: white;
+    }
+
+    select {
+        font-size: 2.4rem;
     }
 
     &__choix{
@@ -67,5 +76,78 @@
     button {
         padding: 1rem 2rem;
         font-size: 2.4rem;
+    }
+}
+
+.carousel-article {
+    text-align: center;
+
+    &__title {
+        margin-bottom: 30px;
+        font-size: 3.6rem;
+        color: $laiton;
+        font-family: $font-primary;
+    }
+}
+
+.carousel {
+    border-radius: 0;
+}
+
+.carousel-item {
+    .card {
+        border: none;
+        background-color: transparent;
+    }
+    
+    .card-img {
+        //overflow: hidden;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    &-title {
+        font-size: 2rem;
+        font-family: $font-primary;
+        color: $laiton;
+        margin-top: 30px;
+        font-weight: 300;
+    }
+}
+
+.card-img{
+    padding: 30px;
+}
+
+
+// En savoir plus
+.article-more {
+    margin: 100px auto 400px auto;
+    max-width: 700px;
+    text-align: center;
+    font-family: $font-primary;
+    
+    &__title {
+        margin-bottom: 50px;
+        color: $laiton;
+    }
+
+    
+    &__content {
+        border-radius: 10px;
+        border: 1px solid $laiton;
+        color: white;
+    }
+
+    &__ctn-img {
+        border-bottom: 1px solid $laiton;
+        border-radius: 10px;        
+    }
+    
+    &__texte {
+        padding: 30px;
     }
 }
