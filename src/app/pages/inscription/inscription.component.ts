@@ -13,7 +13,7 @@ export class InscriptionComponent {
 
   constructor(private fb: FormBuilder) {
     this.inscriptionForm = this.fb.group({
-      nom: ['', Validators.required],
+      nom: ['', [Validators.required]],
       prenom: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       telephone: [
@@ -22,10 +22,26 @@ export class InscriptionComponent {
           Validators.required,
           Validators.pattern('^[0-9]*$'),
           Validators.maxLength(10),
+          Validators.minLength(10),
         ],
       ],
-      password: ['', Validators.required],
-      confirmpassword: ['', Validators.required],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(20),
+        ],
+      ],
+      confirmpassword: [
+        '',
+        Validators.required,
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(20),
+        ],
+      ],
     });
   }
 
@@ -46,6 +62,7 @@ export class InscriptionComponent {
       this.user.prenom = this.inscriptionForm.value.prenom;
       this.user.email = this.inscriptionForm.value.email;
       this.user.telephone = this.inscriptionForm.value.telephone;
+      sessionStorage.setItem('user', JSON.stringify(this.user));
       console.log(this.user);
     } else {
       console.log('Form is invalid');
