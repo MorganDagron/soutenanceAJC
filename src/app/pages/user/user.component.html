@@ -1,54 +1,36 @@
 <div class="container"><h1 class="gradient-title bigtitle">My Profile</h1></div>
 <div class="container glassmorphism">
-    <div class="inscription__ctn-input">
-      <label for="nom">Nom</label>
-      <input
-        type="text"
-        id="nom"
-        [(ngModel)]="user.nom"
-      />
-    </div>
+  <div class="inscription__ctn-input">
+    <label for="nom">Nom</label>
+    <input type="text" id="nom" [(ngModel)]="user.nom" />
+  </div>
 
-    <div >
-      <label for="prenom">Prenom</label>
-      <input
-        type="text"
-        id="prenom"
-        [(ngModel)]="user.prenom"
-      />
-    </div>
+  <div>
+    <label for="prenom">Prenom</label>
+    <input type="text" id="prenom" [(ngModel)]="user.prenom" />
+  </div>
 
-    <div >
-      <label for="telephone">Telephone</label>
-      <input
-        type="text"
-        id="telephone"
-        [(ngModel)]="user.telephone"
-      />
-    </div>
+  <div>
+    <label for="telephone">Telephone</label>
+    <input type="text" id="telephone" [(ngModel)]="user.telephone" />
+  </div>
 
-    <div >
-      <label for="email">Email :</label>
-      <input
-        type="text"
-        id="email"
-        [(ngModel)]="user.email"
-        placeholder="Email"
-      />
-    </div>
-    <div >
-      <button
-        class="button"
-      >
-        Mettre à jour
-      </button>
-      <button
-        class="button-secondary"
-        (click)="deleteUser()"
-      >
-        Supprimer mon compte
-      </button>
-    </div>
+  <div>
+    <label for="email">Email :</label>
+    <input
+      type="text"
+      id="email"
+      (click)="mettreAJour()"
+      [(ngModel)]="user.email"
+      placeholder="Email"
+    />
+  </div>
+  <div>
+    <button class="button">Mettre à jour</button>
+    <button class="button-secondary" (click)="deleteUser()">
+      Supprimer mon compte
+    </button>
+  </div>
 
   <!-- <div class="inscription__ctn-input">
       <label for="password">Mot de passe</label>
