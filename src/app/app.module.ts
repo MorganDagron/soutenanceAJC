@@ -36,6 +36,7 @@ import { UserComponent } from './pages/user/user.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
