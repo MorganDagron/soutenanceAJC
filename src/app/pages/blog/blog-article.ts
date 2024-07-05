@@ -4,6 +4,7 @@ export class BlogArticle {
   contenu: string;
   creationDate: Date;
   categorie: string;
+  readMore:boolean = false;
 
   BlogArticle() {}
   constructor(

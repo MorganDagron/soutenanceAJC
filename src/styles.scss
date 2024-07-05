@@ -178,6 +178,10 @@ p {
   font-size: 1.25rem;
 }
 
+.bigtitle {
+  font-size: 5rem;
+}
+
 nav a,
 footer,
 blockquote,
@@ -337,7 +341,7 @@ input {
 .button-secondary {
   background-color: #d1ad5b;
   color: #080a0a;
-  border: 2px solid black;
+  border: none;
   border-radius: 10px;
   padding: 1rem;
   &:hover {

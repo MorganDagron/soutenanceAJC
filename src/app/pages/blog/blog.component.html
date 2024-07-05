@@ -1,96 +1,113 @@
-<div class="container">
-  <h1 class="gradient-title bigtitle">Blog</h1>
-</div>
-<div class="container">
-  <button
-    class="button-secondary"
-    (click)="toggleActive($event)"
-    [class.active]="isActive('Tous')"
-    value="Tous"
-  >
-    Tous
-  </button>
-  <button
-    class="button-secondary"
-    (click)="toggleActive($event)"
-    [class.active]="isActive('Tendances')"
-    value="Tendances"
-  >
-    Tendances
-  </button>
-  <button
-    class="button-secondary"
-    (click)="toggleActive($event)"
-    [class.active]="isActive('Guide d\'achat')"
-    value="Guide d'achat"
-  >
-    Guide d'achat
-  </button>
-  <button
-    class="button-secondary"
-    (click)="toggleActive($event)"
-    [class.active]="isActive('Entretien')"
-    value="Entretien"
-  >
-    Entretien
-  </button>
-  <button
-    class="button-secondary"
-    (click)="toggleActive($event)"
-    [class.active]="isActive('Histoire')"
-    value="Histoire"
-  >
-    Histoire
-  </button>
-  <button
-    class="button-secondary"
-    (click)="toggleActive($event)"
-    [class.active]="isActive('Artisanat')"
-    value="Artisanat"
-  >
-    Artisanat
-  </button>
-  <button
-    class="button-secondary"
-    (click)="toggleActive($event)"
-    [class.active]="isActive('Matériaux')"
-    value="Matériaux"
-  >
-    Matériaux
-  </button>
-  <button
-    class="button-secondary"
-    (click)="toggleActive($event)"
-    [class.active]="isActive('Ethique')"
-    value="Ethique"
-  >
-    Ethique
-  </button>
-  <button
-    class="button-secondary"
-    (click)="toggleActive($event)"
-    [class.active]="isActive('Mode')"
-    value="Mode"
-  >
-    Mode
-  </button>
-  <button
-    class="button-secondary"
-    (click)="toggleActive($event)"
-    [class.active]="isActive('bien-etre')"
-    value="bien-etre"
-  >
-    bien-être
-  </button>
-</div>
-<div class="cards-container">
-  <div class="card" *ngFor="let article of getFilteredArticles()">
-    <div class="containerImage">
-      <img [src]="article.imageUrl" alt="{{ article.titre }}" />
-    </div>
-    <h2>{{ article.titre }}</h2>
-    <p>{{ article.contenu }}</p>
-    <p>{{ article.categorie }}</p>
-    <p>{{ article.creationDate | date }}</p>
+<div class="main page__blog">
+  <div class="container">
+    <h1 class="gradient-title bigtitle">Blog</h1>
   </div>
+  
+  <nav class="container blog-navigation">
+    <button
+      class="button-secondary"
+      (click)="toggleActive($event)"
+      [class.active]="isActive('Tous')"
+      value="Tous"
+    >
+      Tous
+    </button>
+    <button
+      class="button-secondary"
+      (click)="toggleActive($event)"
+      [class.active]="isActive('Tendances')"
+      value="Tendances"
+    >
+      Tendances
+    </button>
+    <button
+      class="button-secondary"
+      (click)="toggleActive($event)"
+      [class.active]="isActive('Guide d\'achat')"
+      value="Guide d'achat"
+    >
+      Guide d'achat
+    </button>
+    <button
+      class="button-secondary"
+      (click)="toggleActive($event)"
+      [class.active]="isActive('Entretien')"
+      value="Entretien"
+    >
+      Entretien
+    </button>
+    <button
+      class="button-secondary"
+      (click)="toggleActive($event)"
+      [class.active]="isActive('Histoire')"
+      value="Histoire"
+    >
+      Histoire
+    </button>
+    <button
+      class="button-secondary"
+      (click)="toggleActive($event)"
+      [class.active]="isActive('Artisanat')"
+      value="Artisanat"
+    >
+      Artisanat
+    </button>
+    <button
+      class="button-secondary"
+      (click)="toggleActive($event)"
+      [class.active]="isActive('Matériaux')"
+      value="Matériaux"
+    >
+      Matériaux
+    </button>
+    <button
+      class="button-secondary"
+      (click)="toggleActive($event)"
+      [class.active]="isActive('Ethique')"
+      value="Ethique"
+    >
+      Ethique
+    </button>
+    <button
+      class="button-secondary"
+      (click)="toggleActive($event)"
+      [class.active]="isActive('Mode')"
+      value="Mode"
+    >
+      Mode
+    </button>
+    <button
+      class="button-secondary"
+      (click)="toggleActive($event)"
+      [class.active]="isActive('bien-etre')"
+      value="bien-etre"
+    >
+      bien-être
+    </button>
+  </nav>
+
+
+  <div class="ctn-liste-blog">
+    <article class="blog-extrait" *ngFor="let article of getFilteredArticles()">
+        <h2 class="blog-extrait__title">{{ article.titre }}</h2> 
+        <div class="blog-extrait__content">
+            <div class="blog-extrait__ctn-img">
+              <img [src]="article.imageUrl" alt="{{ article.titre }}" />
+            </div>
+            <p class="blog-extrait__texte">
+              {{(article.readMore) ? article.contenu : article.contenu | slice:0:150}}
+              <span *ngIf="!article.readMore"></span>
+              <a href="javascript:;" *ngIf="!article.readMore" (click)="article.readMore=true">
+                [Lire plus ...]
+                </a>
+            </p>
+
+            <div class="ctn-infos">
+              <p>{{ article.categorie }}</p>
+              <p>{{ article.creationDate | date }}</p>
+            </div>
+        </div>
+    </article>
+  </div>
+  
 </div>
