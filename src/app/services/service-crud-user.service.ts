@@ -9,7 +9,7 @@ export class ServiceCrudUserService {
   constructor(private http: HttpClient) {}
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json', 
+      'Content-Type': 'application/json',
     }),
   };
 
