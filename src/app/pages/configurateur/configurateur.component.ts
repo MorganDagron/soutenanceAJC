@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import * as THREE from 'three';
 import { ObjLoaderService } from './obj-loader.service';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
@@ -7,7 +6,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 @Component({
   selector: 'app-configurateur',
   templateUrl: './configurateur.component.html',
-  styleUrls: ['./configurateur.component.css'],
+  styleUrls: ['./configurateur.component.scss'],
 })
 export class ConfigurateurComponent implements OnInit {
   type: string = 'ring';
@@ -51,7 +50,8 @@ export class ConfigurateurComponent implements OnInit {
     );
     this.camera.position.z = 4;
 
-    this.renderer = new THREE.WebGLRenderer();
+    this.renderer = new THREE.WebGLRenderer({ alpha: true });
+    this.renderer.setClearColor(0x000000, 0); // the default
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     document
       .getElementById('three-container')
@@ -82,7 +82,7 @@ export class ConfigurateurComponent implements OnInit {
   }
 
   loadModel(): void {
-    const filepath = `/models3d/${this.generateFilename()}`;
+    const filepath = `/assets/models3d/${this.generateFilename()}`;
     console.log('Attempting to load model from:', filepath); // Journal de débogage
     this.objLoaderService
       .loadObj(filepath)
