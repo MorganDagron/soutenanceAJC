@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 .header {
     max-width: 900px;
     margin: 0 auto 30px auto;
@@ -11,11 +13,43 @@
     }
 
 
-    &__link {
+    &__link,
+    span {
+        position: relative;
         font-size: 1.6rem;
         text-transform: uppercase;
         font-weight: 200;
+        color: $laiton;
+        &:hover {
+            &::after{
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -3px;
+                width: 100%;
+                height: 1px;
+                background-color: $laiton-vieilli;
+            }
+        }
     }
 
+    // menu secondaire
+    &__nav-secondary {
+        position: relative;
+        &:hover {
+            ul {
+                display: block;
+            }
+        }
+    }
+    &__ul-secondary {       
+        position: absolute;
+        left: 0;
+        padding: 10px 0 0 10px;
+        width: 200%;
 
+        li {
+            margin-bottom: 10px;
+        }
+    }
 }

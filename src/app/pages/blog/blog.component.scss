@@ -101,26 +101,27 @@
 
 
 .blog-extrait {
-  width: 45%;
+  width: 30%;
   margin-bottom: 100px;
   text-align: center;
   font-family: $font-primary;
   
   &__title {
     height: 50px;
-      margin-bottom: 20px;
-      color: $laiton;
-      font-family: $font-primary;
+    margin-bottom: 20px;
+    color: $laiton;
+    font-family: $font-primary;
   }
-
+  
   &__content {
-      border-radius: 10px;
-      border: 1px solid $laiton;
-      color: white;
+    border-radius: 10px;
+    border: 1px solid $laiton;
+    color: white;
+    background-color: $card-green;
   }
 
   &__ctn-img {
-    height: 290px;
+    height: 190px;
       border-bottom: 1px solid $laiton;
       border-radius: 10px;   
       overflow: hidden;

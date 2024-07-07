@@ -54,6 +54,12 @@
 
     select {
         font-size: 2.4rem;
+        &:focus {
+            border-radius: 10px 10px 0 0;
+        }
+        &:selection {
+            color: $laiton-vieilli;
+        }
     }
 
     &__choix{
