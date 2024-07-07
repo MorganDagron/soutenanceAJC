@@ -1,0 +1,63 @@
+@import '../../../styles.scss';
+
+
+.page__panier {
+    margin: 100px auto;
+    max-width: 900px;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.1);
+
+    h1 {
+        margin-bottom: 40px;
+        font-size: 4rem;
+    }
+}
+
+.panier-main {
+    &__title {
+        margin-bottom: 40px;
+        color: white;
+        font-family: $font-primary;
+    }
+}
+
+.article {
+    display: flex;
+    margin-bottom: 50px;
+
+    .ctn-infos {
+        padding-left: 40px;
+    }
+
+    &__title {
+        font-size: 2rem;
+        margin: 0 0  10px 0;
+        color: white;
+    }
+
+    &__recap {
+        display: flex;
+        align-items: center;
+        font-size: 2rem;
+        color: white;
+        
+        span {
+            margin: 0 10px;
+        }
+    }
+
+
+
+    &__prix {
+        font-size: 2.5rem;
+        font-weight: 400;
+        color: $laiton;
+        font-family: $font-primary;
+    }
+
+    button {
+        padding: 1rem 2rem;
+        font-size: 2.4rem;
+    }
+}

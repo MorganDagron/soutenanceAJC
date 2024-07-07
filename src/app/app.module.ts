@@ -18,6 +18,7 @@ import { BlogComponent } from './pages/blog/blog.component';
 import { ArticleComponent } from './pages/article/article.component';
 import { UserComponent } from './pages/user/user.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PanierComponent } from './pages/panier/panier.component';
 import { ConfigurateurComponent } from './pages/configurateur/configurateur.component';
 
 @NgModule({
@@ -32,9 +33,10 @@ import { ConfigurateurComponent } from './pages/configurateur/configurateur.comp
     BlogComponent,
     ArticleComponent,
     UserComponent,
+    PanierComponent,
     ConfigurateurComponent,
   ],
-  imports: [
+  imports: [ 
     BrowserModule,
     AppRoutingModule,
     FormsModule,
