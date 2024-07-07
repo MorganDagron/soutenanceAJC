@@ -54,12 +54,12 @@ export class ConfigurateurComponent implements OnInit, AfterViewInit {
     const container = document.getElementById('three-container');
     if (container) {
       this.camera = new THREE.PerspectiveCamera(
-        45,
+        60,
         container.clientWidth / container.clientHeight,
         0.1,
         1000
       );
-      this.camera.position.z = 3;
+      this.camera.position.z = 4;
 
       this.renderer = new THREE.WebGLRenderer({ alpha: true });
       this.renderer.setSize(container.clientWidth, container.clientHeight);
