@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as THREE from 'three';
 import { ObjLoaderService } from './obj-loader.service';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
@@ -8,7 +8,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
   templateUrl: './configurateur.component.html',
   styleUrls: ['./configurateur.component.scss'],
 })
-export class ConfigurateurComponent implements OnInit {
+export class ConfigurateurComponent implements OnInit, AfterViewInit {
   type: string = 'ring';
   shape: string = 'simple-ring';
   decoration: string = 'wave';
@@ -31,6 +31,11 @@ export class ConfigurateurComponent implements OnInit {
     this.loadModel();
   }
 
+  ngAfterViewInit(): void {
+    this.onWindowResize();
+    window.addEventListener('resize', this.onWindowResize.bind(this));
+  }
+
   initThreeJS(): void {
     this.scene = new THREE.Scene();
 
@@ -40,30 +45,45 @@ export class ConfigurateurComponent implements OnInit {
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 6.5); // lumière directionnelle
     directionalLight.position.set(2, 4, 0).normalize();
+    
+    const directionalLight2 = directionalLight.clone();
+    directionalLight2.position.set(-2, -4, 0).normalize();
+    this.scene.add(directionalLight2);
     this.scene.add(directionalLight);
 
-    this.camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
-    this.camera.position.z = 4;
+    const container = document.getElementById('three-container');
+    if (container) {
+      this.camera = new THREE.PerspectiveCamera(
+        75,
+        container.clientWidth / container.clientHeight,
+        0.1,
+        1000
+      );
+      this.camera.position.z = 3;
 
-    this.renderer = new THREE.WebGLRenderer({ alpha: true });
-    this.renderer.setClearColor(0x000000, 0); // the default
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
-    document
-      .getElementById('three-container')
-      ?.appendChild(this.renderer.domElement);
-    this.orbitControls = new OrbitControls(
-      this.camera,
-      this.renderer.domElement
-    );
-    this.orbitControls.enableDamping = true;
-    this.orbitControls.dampingFactor = 0.05;
-    this.orbitControls.screenSpacePanning = false;
-    this.animate();
+      this.renderer = new THREE.WebGLRenderer({ alpha: true });
+      this.renderer.setSize(container.clientWidth, container.clientHeight);
+      container.appendChild(this.renderer.domElement);
+
+      this.orbitControls = new OrbitControls(
+        this.camera,
+        this.renderer.domElement
+      );
+      this.orbitControls.enableDamping = true;
+      this.orbitControls.dampingFactor = 0.05;
+      this.orbitControls.screenSpacePanning = false;
+
+      this.animate();
+    }
+  }
+
+  onWindowResize(): void {
+    const container = document.getElementById('three-container');
+    if (container) {
+      this.camera.aspect = container.clientWidth / container.clientHeight;
+      this.camera.updateProjectionMatrix();
+      this.renderer.setSize(container.clientWidth, container.clientHeight);
+    }
   }
 
   animate = () => {
