@@ -1,0 +1,34 @@
+<div class="page__panier">
+    <h1 class="gradient-title">Votre Panier</h1>
+
+    <div class="panier-main">
+        
+        <div class="panier__liste" *ngIf="panier.length > 0">
+            <h2 class="panier-main__title">Votre panier contient {{panier.length}} article(s)</h2>
+            <div class="panier-main__produit" *ngFor="let produit of panier">
+
+                <article class="article"> 
+                    <div class="ctn-img">
+                        <img [src]="produit.image" alt="Image de {{produit.titre}}">
+                    </div>
+                    <div class="ctn-infos">
+                        <h3 class="article__title">{{produit.nom}}</h3> 
+                        <p class="article__recap">
+                            <span class="white">{{produit.taille}} - {{produit.matiere}} </span> - <span class="article__prix"> {{produit.prix}}</span>
+                        </p>                       
+                        <button >Supprimer</button>
+                    </div>
+                </article>
+
+            </div>
+        </div> 
+
+        <div class="panier-main__title" *ngIf="panier.length == 0">
+            <h2>Votre panier est vide</h2>
+        </div>
+    </div>
+    
+    <div class="panier-aside">
+        <div class="prix"></div>
+    </div>
+</div>

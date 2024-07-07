@@ -17,6 +17,7 @@ import { BlogComponent } from './pages/blog/blog.component';
 import { ArticleComponent } from './pages/article/article.component';
 import { UserComponent } from './pages/user/user.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PanierComponent } from './pages/panier/panier.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +31,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BlogComponent,
     ArticleComponent,
     UserComponent,
+    PanierComponent,
   ],
-  imports: [
+  imports: [ 
     BrowserModule,
     AppRoutingModule,
     FormsModule,

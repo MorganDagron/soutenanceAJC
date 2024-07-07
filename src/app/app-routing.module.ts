@@ -9,6 +9,7 @@ import { FooterComponent } from './common/footer/footer.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { ArticleComponent } from './pages/article/article.component';
 import { UserComponent } from './pages/user/user.component';
+import { PanierComponent } from './pages/panier/panier.component';
 
 const routes: Routes = [
   { path: 'header', component: HeaderComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'article', component: ArticleComponent },
   { path: 'user', component: UserComponent },
+  { path: 'panier', component: PanierComponent }
 ];
 
 @NgModule({
