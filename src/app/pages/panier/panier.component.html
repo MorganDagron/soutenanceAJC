@@ -4,7 +4,7 @@
     <div class="panier-main">
         
         <div class="panier__liste" *ngIf="panier.length > 0">
-            <h2 class="panier-main__title">Votre panier contient {{panier.length}} article(s)</h2>
+            <h2 class="panier-main__title">Votre panier contient {{panier.length}} article<span *ngIf="panier.length >1">(s)</span></h2>
             <div class="panier-main__produit" *ngFor="let produit of panier">
 
                 <article class="article"> 
