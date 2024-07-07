@@ -40,7 +40,7 @@ export class ConfigurateurComponent implements OnInit, AfterViewInit {
     this.scene = new THREE.Scene();
 
     // Ajouter des lumières à la scène
-    const ambientLight = new THREE.AmbientLight(0x404040, 6); // lumière douce
+    const ambientLight = new THREE.AmbientLight(0x404040, 10); // lumière douce
     this.scene.add(ambientLight);
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 6.5); // lumière directionnelle
@@ -54,7 +54,7 @@ export class ConfigurateurComponent implements OnInit, AfterViewInit {
     const container = document.getElementById('three-container');
     if (container) {
       this.camera = new THREE.PerspectiveCamera(
-        75,
+        45,
         container.clientWidth / container.clientHeight,
         0.1,
         1000
@@ -118,6 +118,7 @@ export class ConfigurateurComponent implements OnInit, AfterViewInit {
         // Assurez-vous que l'objet est visible
         object.position.set(0, 0, 0);
         object.scale.set(0.1, 0.1, 0.1);
+        object.receiveShadow = true;
 
         // Supprimer le modèle précédent s'il existe
         if (this.modelGroup) {
@@ -155,7 +156,7 @@ export class ConfigurateurComponent implements OnInit, AfterViewInit {
         });
       default:
         return new THREE.MeshStandardMaterial({
-          color: 0xffd700,
+          color: 0xffffff,
           roughness: 0.1,
           metalness: 0.9,
         });
