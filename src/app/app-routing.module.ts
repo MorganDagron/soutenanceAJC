@@ -10,6 +10,7 @@ import { BlogComponent } from './pages/blog/blog.component';
 import { ArticleComponent } from './pages/article/article.component';
 import { UserComponent } from './pages/user/user.component';
 import { PanierComponent } from './pages/panier/panier.component';
+import { ConfigurateurComponent } from './pages/configurateur/configurateur.component';
 
 const routes: Routes = [
   { path: 'header', component: HeaderComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'article', component: ArticleComponent },
   { path: 'user', component: UserComponent },
+  { path: 'configurateur', component: ConfigurateurComponent },
   { path: 'panier', component: PanierComponent }
 ];
 

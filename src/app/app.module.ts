@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ObjLoaderService } from './pages/configurateur/obj-loader.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { ArticleComponent } from './pages/article/article.component';
 import { UserComponent } from './pages/user/user.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PanierComponent } from './pages/panier/panier.component';
+import { ConfigurateurComponent } from './pages/configurateur/configurateur.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { PanierComponent } from './pages/panier/panier.component';
     ArticleComponent,
     UserComponent,
     PanierComponent,
+    ConfigurateurComponent,
   ],
   imports: [ 
     BrowserModule,
@@ -41,7 +44,7 @@ import { PanierComponent } from './pages/panier/panier.component';
     ReactiveFormsModule,
     NgbModule,
   ],
-  providers: [],
+  providers: [ObjLoaderService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
