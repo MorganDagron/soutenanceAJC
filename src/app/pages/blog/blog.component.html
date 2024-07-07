@@ -82,7 +82,7 @@
       [class.active]="isActive('bien-etre')"
       value="bien-etre"
     >
-      bien-être
+      Bien-être
     </button>
   </nav>
 
@@ -95,7 +95,7 @@
               <img [src]="article.imageUrl" alt="{{ article.titre }}" />
             </div>
             <p class="blog-extrait__texte">
-              {{(article.readMore) ? article.contenu : article.contenu | slice:0:150}}
+              {{(article.readMore) ? article.contenu : article.contenu | slice:0:130}}
               <span *ngIf="!article.readMore"></span>
               <a href="javascript:;" *ngIf="!article.readMore" (click)="article.readMore=true">
                 [Lire plus ...]
