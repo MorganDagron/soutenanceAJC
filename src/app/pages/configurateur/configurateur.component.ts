@@ -52,7 +52,7 @@ export class ConfigurateurComponent implements OnInit, AfterViewInit {
     this.scene.add(directionalLight);
 
     const container = document.getElementById('three-container');
-    if (container) {
+    if (container) { 
       this.camera = new THREE.PerspectiveCamera(
         60,
         container.clientWidth / container.clientHeight,

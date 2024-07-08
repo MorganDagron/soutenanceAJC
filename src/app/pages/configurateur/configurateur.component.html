@@ -1,8 +1,11 @@
-<div class="container"><h1 class="gradient-title">Configurateur</h1></div>
-<div class="wrapper-inscription glassmorphism">
-  <div class="inscription">
+<div class="container">
+  <h1 class="gradient-title">Configurez votre bijoux</h1>
+</div>
+
+<div class="wrapper-configurateur glassmorphism">
+  <div class="configurateur">
     <form>
-      <div class="inscription__ctn-input">
+      <div class="configurateur__ctn-input">
         <label for="type">Type:</label>
         <select
           id="type"
@@ -10,41 +13,41 @@
           name="type"
           (change)="updateModel()"
         >
-          <option value="ring">Ring</option>
+          <option value="ring">Bague</option>
           <!-- ajoute d'autres options si nécessaire -->
         </select>
       </div>
-      <div class="inscription__ctn-input">
-        <label for="shape">Shape:</label>
+      <div class="configurateur__ctn-input">
+        <label for="shape">Forme :</label>
         <select
           id="shape"
           [(ngModel)]="shape"
           name="shape"
           (change)="updateModel()"
         >
-          <option value="simple-ring">Simple Ring</option>
-          <option value="signet-simple">Simple signet</option>
-          <option value="signet-logo">Signet logo</option>
-          <option value="shield-simple">Simple shield</option>
+          <option value="simple-ring">Bague simple</option>
+          <option value="signet-simple">Chevalière simple</option>
+          <option value="signet-logo">Chevalière avec logo</option>
+          <option value="shield-simple">Bouclier simple</option>
         </select>
       </div>
-      <div class="inscription__ctn-input">
-        <label for="decoration">Decoration:</label>
+      <div class="configurateur__ctn-input">
+        <label for="decoration">Decoration :</label>
         <select
           id="decoration"
           [(ngModel)]="decoration"
           name="decoration"
           (change)="updateModel()"
         >
-          <option value="wave">Wave</option>
-          <option value="dots">Dots</option>
-          <option value="brand">Brand</option>
-          <option value="leaf">Leaf</option>
-          <option value="coral">Coral(shield only)</option>
+          <option value="wave">Vagues</option>
+          <option value="dots">Points</option>
+          <option value="brand">Logo</option>
+          <option value="leaf">Feuille</option>
+          <option value="coral">Corail (bouclier seulement)</option>
         </select>
       </div>
-      <div class="inscription__ctn-input">
-        <label for="width">Width:</label>
+      <div class="configurateur__ctn-input">
+        <label for="width">Largeur:</label>
         <select
           id="width"
           [(ngModel)]="width"
@@ -55,13 +58,13 @@
           <option value="5">5</option>
           <option value="8-5">8,5</option>
           <option value="12">12</option>
-          <option value="10">10 (for signet-simple)</option>
-          <option value="15">15 (for signet-simple)</option>
-          <option value="20">20 (for signet-simple)</option>
+          <option value="10">10 (pour Chevalière simple)</option>
+          <option value="15">15 (pour Chevalière simple)</option>
+          <option value="20">20 (pour Chevalière simple)</option>
         </select>
       </div>
-      <div class="inscription__ctn-input">
-        <label for="diameter">Diameter:</label>
+      <div class="configurateur__ctn-input">
+        <label for="diameter">Diamètre :</label>
         <input
           type="text"
           id="diameter"
@@ -70,20 +73,21 @@
           (change)="updateModel()"
         />
       </div>
-      <div class="inscription__ctn-input">
-        <label for="material">Material:</label>
+      <div class="configurateur__ctn-input">
+        <label for="material">Matériaux :</label>
         <select
           id="material"
           [(ngModel)]="material"
           name="material"
           (change)="updateMaterial(); updateModel()"
         >
-          <option value="gold">Gold</option>
-          <option value="steel">Steel</option>
-          <option value="silver">Silver</option>
+          <option value="gold">Or</option>
+          <option value="steel">Acier</option>
+          <option value="silver">Argent</option>
         </select>
       </div>
     </form>
   </div>
-  <div id="three-container" class="wrapper-inscription"></div>
+  <div id="three-container" class="wrapper-configurateur"></div>
 </div>
+
