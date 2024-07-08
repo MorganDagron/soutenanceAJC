@@ -23,32 +23,14 @@
     }
 }
 
-.panier-main {
-    width: calc(100% - 300px);
-    padding: 20px;
-    background-color: rgba(255,255,255,0.1);
-    font-family: $font-primary;
-
-    &__title {
-        margin-bottom: 40px;
-        color: white;   
-    }
-
-    button {
-        padding: 10px;
-        background-color: transparent;
-    }
-}
-
 .article {
     display: flex;
-    align-items: center;
     justify-content: space-between;
     margin-bottom: 50px;
 
     &__left {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: 20px;
     }
 
@@ -77,37 +59,4 @@
         color: $laiton;
     }
 
-}
-
-// recap panier aside
-.panier-aside {
-    width: 300px;
-    padding: 30px 20px;
-    border: 3px solid $laiton;
-    background-color: $card-green;
-    color: white;
-    
-    .flex-between {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    span {
-        font-size: 1.8rem;
-    }
-
-    button {
-        width: 100%;
-        margin-top: 50px;
-        color: white;
-        text-transform: uppercase;
-        font-size: 2rem;
-    }
-    
-}
-
-.panier-recap,
-.total {
-    font-weight: 600;
 }

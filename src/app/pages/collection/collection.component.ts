@@ -18,13 +18,8 @@ export class CollectionComponent {
 
   ngOnInit(): void {
     this.srv.GetArticles().subscribe(
-      (response) => {
-        this.list=response;
-        console.log(response);
-      }
-      ,
-      (err) => { console.log("*************KO") },
-      () => { console.log("*********complete****")}
+      (response) => { this.list=response; },
+      (err) => { console.log("Erreur fetch articles") }
 
     );
   }
