@@ -8,6 +8,8 @@ import { Article } from '../pages/article/article';
 })
 export class ServiceCrudArticleService {
   
+  private apiUrl = 'http://localhost:46926/api/article/';
+
   list: Array<Article> = [];
 
   constructor(private http: HttpClient) {}
@@ -19,24 +21,24 @@ export class ServiceCrudArticleService {
   };
 
   GetArticleId(id: number): Observable<Article> {
-    return this.http.get<Article>('http://localhost:46926/api/article/' + id);
+    return this.http.get<Article>(this.apiUrl + id);
   }
 
   GetArticles(): Observable<Array<Article>> {
-    return this.http.get<Array<Article>>('http://localhost:46926/api/article/');
+    return this.http.get<Array<Article>>(this.apiUrl);
   }
 
   AddArticles(data: Article): Observable<Article> {
     const body = JSON.stringify(data);
-    return this.http.post<Article>('http://localhost:46926/api/article/', body, this.httpOptions);
+    return this.http.post<Article>(this.apiUrl, body, this.httpOptions);
   }
 
   UpdateArticles(data: Article): Observable<Article> {
     const body = JSON.stringify(data);
-    return this.http.put<Article>('http://localhost:46926/api/article/', body, this.httpOptions);
+    return this.http.put<Article>(this.apiUrl, body, this.httpOptions);
   }
 
   DeleteArticles(id: number): Observable<void> {
-    return this.http.delete<void>('http://localhost:46926/api/article/' + id);
+    return this.http.delete<void>(this.apiUrl + id);
   }
 }
