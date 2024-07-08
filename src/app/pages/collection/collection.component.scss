@@ -44,7 +44,7 @@
     }
 
     &__title {
-        font-size: 2rem;
+        font-size: 2.2rem;
         margin: 0 0  10px 0;
         color: white;
     }
@@ -60,8 +60,9 @@
         color: $laiton;
     }
 
+    .white {
+        color: white;
+    }
+
 }
 
-.white {
-    color: white;
-}
