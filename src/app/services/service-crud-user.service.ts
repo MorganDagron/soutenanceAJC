@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { User } from '../pages/user/user';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ServiceCrudUserService {
+  private apiUrl = 'http://localhost:46926/api/users';
   constructor(private http: HttpClient) {}
   httpOptions = {
     headers: new HttpHeaders({
@@ -13,44 +15,33 @@ export class ServiceCrudUserService {
     }),
   };
 
-  UpdateUser(data: any) {
-    const body = JSON.stringify(data);
-    this.http
-      .put('http://localhost:46926/api/users/', body, this.httpOptions)
-      .subscribe(
-        (response) => {
-          console.log('User updated successfully', response);
-        },
-        (error) => {
-          console.error('Error updating user', error);
-        }
-      );
+  FindByMail(mail: string): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}?mail=${mail}`, this.httpOptions);
   }
 
-  DeleteUser(id: number) {
-    this.http.delete('http://localhost:46926/api/users/' + id).subscribe(
-      (response) => {
-        console.log('User deleted successfully', response);
-      },
-      (error) => {
-        console.error('Error deleting user', error);
-      }
+  UpdateUser(data: any): Observable<any> {
+    const body = JSON.stringify(data);
+    return this.http.put(
+      'http://localhost:46926/api/users/',
+      body,
+      this.httpOptions
     );
   }
 
-  AddUser(data: User) {
+  DeleteUser(mail: string): Observable<any> {
+    return this.http.delete(
+      'http://localhost:46926/api/users?mail=' + mail,
+      this.httpOptions
+    );
+  }
+
+  AddUser(data: User): Observable<any> {
     const body = JSON.stringify(data);
     console.log('Sending user data: ' + body);
-
-    this.http
-      .post('http://localhost:46926/api/users/', body, this.httpOptions)
-      .subscribe(
-        (response) => {
-          console.log('User created successfully', response);
-        },
-        (error) => {
-          console.error('Error creating user', error);
-        }
-      );
+    return this.http.post(
+      'http://localhost:46926/api/users/',
+      body,
+      this.httpOptions
+    );
   }
 }
