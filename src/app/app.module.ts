@@ -20,6 +20,7 @@ import { UserComponent } from './pages/user/user.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PanierComponent } from './pages/panier/panier.component';
 import { ConfigurateurComponent } from './pages/configurateur/configurateur.component';
+import { CollectionComponent } from './pages/collection/collection.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ConfigurateurComponent } from './pages/configurateur/configurateur.comp
     UserComponent,
     PanierComponent,
     ConfigurateurComponent,
+    CollectionComponent,
   ],
   imports: [ 
     BrowserModule,

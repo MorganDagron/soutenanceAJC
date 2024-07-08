@@ -1,49 +1,42 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Article } from '../pages/article/article';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ServiceCrudArticleService {
-  list: any;
+  
+  list: Array<Article> = [];
+
   constructor(private http: HttpClient) {}
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
     }),
   };
 
-  GetArticleId(id: any): void {
-    let article: any;
-    this.http
-      .get('http://localhost:46926/api/article/' + id)
-      .subscribe((data) => {
-        article = data;
-      });
+  GetArticleId(id: number): Observable<Article> {
+    return this.http.get<Article>('http://localhost:46926/api/article/' + id);
   }
 
-  GetArticles(): void {
-    this.http.get('http://localhost:46926/api/article/').subscribe((data) => {
-      this.list = data;
-    });
-  }
-  AddArticles(data: any) {
-    const body = JSON.stringify(data);
-    this.http.post('http://localhost:46926/api/article/', body, {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-    });
+  GetArticles(): Observable<Array<Article>> {
+    return this.http.get<Array<Article>>('http://localhost:46926/api/article/');
   }
 
-  UpdateArticles(data: any) {
+  AddArticles(data: Article): Observable<Article> {
     const body = JSON.stringify(data);
-    this.http.put('http://localhost:46926/api/article/', body, {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-    });
+    return this.http.post<Article>('http://localhost:46926/api/article/', body, this.httpOptions);
   }
 
-  DeleteArticles(data: any) {
+  UpdateArticles(data: Article): Observable<Article> {
     const body = JSON.stringify(data);
-    this.http.delete('http://localhost:46926/api/article/' + data).subscribe();
+    return this.http.put<Article>('http://localhost:46926/api/article/', body, this.httpOptions);
+  }
+
+  DeleteArticles(id: number): Observable<void> {
+    return this.http.delete<void>('http://localhost:46926/api/article/' + id);
   }
 }
