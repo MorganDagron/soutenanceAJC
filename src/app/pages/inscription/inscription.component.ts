@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { User } from '../user/user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { ServiceCrudUserService } from 'src/app/services/service-crud-user.service';
+import { ServiceCrudAuthService } from 'src/app/services/service-crud-auth.service';
+import { Auth } from 'src/app/services/auth';
 
 @Component({
   selector: 'app-inscription',
@@ -10,45 +12,21 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class InscriptionComponent {
   user = new User('', '', '', '');
+  auth = new Auth('', '');
   inscriptionForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private usersrv: ServiceCrudUserService,
+    private authsrv: ServiceCrudAuthService
+  ) {
     this.inscriptionForm = this.fb.group({
-      nom: ['', 
-        //[Validators.required]
-      ],
-      prenom: ['', 
-        //Validators.required
-      ],
-      email: ['', 
-        //[Validators.required, Validators.email]
-        ],
-      telephone: [
-        '',
-        // [
-        //   Validators.required,
-        //   Validators.pattern('^[0-9]*$'),
-        //   Validators.maxLength(10),
-        //   Validators.minLength(10),
-        // ],
-      ],
-      password: [
-        '',
-        // [
-        //   Validators.required,
-        //   Validators.minLength(6),
-        //   Validators.maxLength(20),
-        // ],
-      ],
-      confirmpassword: [
-        '',
-        // Validators.required,
-        // [
-        //   Validators.required,
-        //   Validators.minLength(6),
-        //   Validators.maxLength(20),
-        // ],
-      ],
+      nom: [''],
+      prenom: [''],
+      email: [''],
+      telephone: [''],
+      password: [''],
+      confirmpassword: [''],
     });
   }
 
@@ -69,8 +47,15 @@ export class InscriptionComponent {
       this.user.prenom = this.inscriptionForm.value.prenom;
       this.user.email = this.inscriptionForm.value.email;
       this.user.telephone = this.inscriptionForm.value.telephone;
+      this.auth.login = this.inscriptionForm.value.email;
+      this.auth.mot_de_passe = this.inscriptionForm.value.password;
       sessionStorage.setItem('user', JSON.stringify(this.user));
+      this.usersrv.AddUser(this.user);
+      sessionStorage.setItem('auth', JSON.stringify(this.auth));
+      this.authsrv.AddAuth(this.auth);
       console.log(this.user);
+      console.log(this.auth);
+
       this.inscriptionForm.reset();
     } else {
       this.inscriptionForm.reset();

@@ -15,14 +15,14 @@ export class ServiceCrudAuthService {
 
   AddAuth(data: Auth) {
     const body = JSON.stringify(data);
-    this.http.post('http://localhost:46926/api/auth/', body, {
+    this.http.post('http://localhost:46926/api/Authentification/', body, {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     });
   }
 
   UpdateAuth(data: Auth) {
     const body = JSON.stringify(data);
-    this.http.put('http://localhost:46926/api/auth/', body, {
+    this.http.put('http://localhost:46926/api/Authentification/', body, {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     });
   }
@@ -30,15 +30,13 @@ export class ServiceCrudAuthService {
   DeleteAuth(data: any) {
     const body = JSON.parse(data);
     const login = body.login;
-    this.http.delete('http://localhost:46926/api/auth/' + login).subscribe();
+    this.http.delete('http://localhost:46926/api/Authentification/' + login);
   }
 
   Login(data: Auth) {
     const body = JSON.stringify(data);
-    this.http
-      .post('http://localhost:46926/api/auth/login', body, {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-      })
-      .subscribe();
+    this.http.post('http://localhost:46926/api/Authentification/', body, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    });
   }
 }
