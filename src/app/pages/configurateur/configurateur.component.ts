@@ -13,7 +13,7 @@ export class ConfigurateurComponent implements OnInit, AfterViewInit {
   shape: string = 'simple-ring';
   decoration: string = 'wave';
   width: string = '3';
-  diameter: string = '1';
+  diameter: string = '1.000';
   material: string = 'gold'; // Option de matériau par défaut
   scene!: THREE.Scene;
   renderer!: THREE.WebGLRenderer;
