@@ -13,7 +13,7 @@ import { Auth } from 'src/app/services/auth';
 export class InscriptionComponent {
   user = new User('', '', '', '', '', 0);
   auth = new Auth('', '');
-  rand = 'sss';
+  rand = 'eeee';
   inscriptionForm: FormGroup;
 
   constructor(
@@ -55,10 +55,10 @@ export class InscriptionComponent {
       this.auth.mot_de_passe = this.inscriptionForm.value.password;
       sessionStorage.setItem('user', JSON.stringify(this.user));
       sessionStorage.setItem('auth', JSON.stringify(this.auth));
-      this.authsrv.AddAuth(this.auth);
-      this.usersrv.AddUser(this.user);
       console.log(this.user);
       console.log(this.auth);
+      this.authsrv.AddAuth(this.auth);
+      this.usersrv.AddUser(this.user);
 
       this.inscriptionForm.reset();
     } else {

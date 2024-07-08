@@ -2,14 +2,14 @@
   <div class="connexion">
     <p class="h1">Connexion</p>
     <div class="connexion__ctn-input">
-      <label for="email">Email</label>
-      <input type="text" id="email" placeholder="Email" />
+      <label for="mail">Email</label>
+      <input type="text" id="mail" [(ngModel)]="login" placeholder="Email" />
     </div>
     <div class="connexion__ctn-input">
-      <label for="password">Mot de passe</label>
-      <input type="password" id="password" placeholder="Mot de passe" />
+      <label for="mot_de_passe">Mot de passe</label>
+      <input type="password" id="mot_de_passe" [(ngModel)]="mot_de_passe" placeholder="Mot de passe" />
     </div>
-    <button class="button">Se connecter</button>
+    <button class="button" (click)="Connexion()">Se connecter</button>
     <p>
       Pas encore de compte ?
       <a [routerLink]="['/inscription']">Inscrivez-vous</a>
