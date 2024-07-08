@@ -5,7 +5,6 @@ import { Auth } from './auth';
   providedIn: 'root',
 })
 export class ServiceCrudAuthService {
-  list: any;
   constructor(private http: HttpClient) {}
   httpOptions = {
     headers: new HttpHeaders({

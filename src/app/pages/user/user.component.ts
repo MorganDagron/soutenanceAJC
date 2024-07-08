@@ -9,12 +9,14 @@ import { ServiceCrudUserService } from 'src/app/services/service-crud-user.servi
   styleUrls: ['./user.component.scss'],
 })
 export class UserComponent {
-  user = new User('', '', '', '');
+  user = new User('', '', '', '', '', 0);
   id: number = 0;
   nom: string = '';
   prenom: string = '';
-  email: string = '';
+  mail: string = '';
   telephone: string = '';
+  adresse_postale: string = '';
+  isAdmin: number = 0;
   constructor(private srv: ServiceCrudUserService) {}
   ngOnInit(): void {
     let str = sessionStorage.getItem('user');
@@ -22,8 +24,10 @@ export class UserComponent {
     let id = this.user.id;
     let nom = this.user.nom;
     let prenom = this.user.prenom;
-    let email = this.user.email;
+    let email = this.user.mail;
     let telephone = this.user.telephone;
+    let adresse = this.user.adresse_postale;
+    let isAdmin = this.user.isAdmin;
   }
 
   deleteUser() {

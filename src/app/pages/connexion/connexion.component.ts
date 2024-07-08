@@ -10,12 +10,10 @@ import { User } from '../user/user';
   styleUrls: ['./connexion.component.scss'],
 })
 export class ConnexionComponent {
-  user = new User('', '', '', '');
+  user = new User('', '', '', '', '', 0);
   auth = new Auth('', '');
   constructor(
     private usersrv: ServiceCrudUserService,
     private authsrv: ServiceCrudAuthService
   ) {}
-
-  
 }
