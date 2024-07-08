@@ -65,13 +65,40 @@
       </div>
       <div class="configurateur__ctn-input">
         <label for="diameter">Diamètre :</label>
-        <input
+        <select
           type="text"
           id="diameter"
           [(ngModel)]="diameter"
           name="diameter"
           (change)="updateModel()"
-        />
+        >
+          <option value="0.814">44</option>
+          <option value="0.832">45</option>
+          <option value="0.849">46</option>
+          <option value="0.872">47</option>
+          <option value="0.890">48</option>
+          <option value="0.907">49</option>
+          <option value="0.924">50</option>
+          <option value="0.942">51</option>
+          <option value="0.959">52</option>
+          <option value="0.977">53</option>
+          <option value="1.000">54</option>
+          <option value="1.017">55</option>
+          <option value="1.035">56</option>
+          <option value="1.052">57</option>
+          <option value="1.070">58</option>
+          <option value="1.093">59</option>
+          <option value="1.110">60</option>
+          <option value="1.128">61</option>
+          <option value="1.145">62</option>
+          <option value="1.163">63</option>
+          <option value="1.180">64</option>
+          <option value="1.202">65</option>
+          <option value="1.220">66</option>
+          <option value="1.238">67</option>
+          <option value="1.255">68</option>
+          <option value="1.273">69</option>
+        </select>
       </div>
       <div class="configurateur__ctn-input">
         <label for="material">Matériaux :</label>
@@ -90,4 +117,3 @@
   </div>
   <div id="three-container" class="wrapper-configurateur"></div>
 </div>
-

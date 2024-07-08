@@ -12,8 +12,8 @@ export class ConfigurateurComponent implements OnInit, AfterViewInit {
   type: string = 'ring';
   shape: string = 'simple-ring';
   decoration: string = 'wave';
-  width: string = '5';
-  diameter: string = '17-06';
+  width: string = '3';
+  diameter: string = '1';
   material: string = 'gold'; // Option de matériau par défaut
   scene!: THREE.Scene;
   renderer!: THREE.WebGLRenderer;
@@ -126,7 +126,7 @@ export class ConfigurateurComponent implements OnInit, AfterViewInit {
   };
 
   generateFilename(): string {
-    return `${this.type}_${this.shape}_${this.decoration}_${this.width}_${this.diameter}.obj`;
+    return `${this.type}_${this.shape}_${this.decoration}_${this.width}_17-06.obj`;
   }
 
   loadModel(): void {
@@ -145,7 +145,11 @@ export class ConfigurateurComponent implements OnInit, AfterViewInit {
 
         // Assurez-vous que l'objet est visible
         object.position.set(0, 0, 0);
-        object.scale.set(0.1, 0.1, 0.1);
+        object.scale.set(
+          0.1 * parseFloat(this.diameter),
+          0.1 * parseFloat(this.diameter),
+          0.1 * parseFloat(this.diameter)
+        );
         object.receiveShadow = true;
 
         // Supprimer le modèle précédent s'il existe
