@@ -27,6 +27,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 50px;
+    gap: 50px;
 
     &__left {
         display: flex;
@@ -59,4 +60,8 @@
         color: $laiton;
     }
 
+}
+
+.white {
+    color: white;
 }
