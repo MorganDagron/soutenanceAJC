@@ -43,7 +43,7 @@ export class ConfigurateurComponent implements OnInit, AfterViewInit {
     const basePath = '/assets/models3d/';
 
     this.matcapTextures['gold'] = loader.load(
-      basePath + 'E6BF3C_5A4719_977726_FCFC82-256px.png'
+      basePath + 'AC8942_432D19_6E4D27_5F3B1C-256px.png'
     );
     this.matcapTextures['steel'] = loader.load(
       basePath + '3B3C3F_DAD9D5_929290_ABACA8-256px.png'
