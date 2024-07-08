@@ -1,0 +1,44 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Auth } from './auth';
+@Injectable({
+  providedIn: 'root',
+})
+export class ServiceCrudAuthService {
+  list: any;
+  constructor(private http: HttpClient) {}
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+  };
+
+  AddAuth(data: Auth) {
+    const body = JSON.stringify(data);
+    this.http.post('http://localhost:46926/api/auth/', body, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    });
+  }
+
+  UpdateAuth(data: Auth) {
+    const body = JSON.stringify(data);
+    this.http.put('http://localhost:46926/api/auth/', body, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    });
+  }
+
+  DeleteAuth(data: any) {
+    const body = JSON.parse(data);
+    const login = body.login;
+    this.http.delete('http://localhost:46926/api/auth/' + login).subscribe();
+  }
+
+  Login(data: Auth) {
+    const body = JSON.stringify(data);
+    this.http
+      .post('http://localhost:46926/api/auth/login', body, {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      })
+      .subscribe();
+  }
+}
