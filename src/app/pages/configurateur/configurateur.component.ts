@@ -28,6 +28,7 @@ export class ConfigurateurComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    THREE.ColorManagement.enabled = true; // Activer la gestion des couleurs modernes
     this.initThreeJS();
     this.loadMatcapTextures(); // Charger les textures MatCap
     this.loadModel();
@@ -43,13 +44,22 @@ export class ConfigurateurComponent implements OnInit, AfterViewInit {
     const basePath = '/assets/models3d/';
 
     this.matcapTextures['gold'] = loader.load(
-      basePath + 'AC8942_432D19_6E4D27_5F3B1C-256px.png'
+      basePath + 'E6BF3C_5A4719_977726_FCFC82-256px.png',
+      (texture) => {
+        texture.colorSpace = THREE.SRGBColorSpace; // Utiliser sRGBColorSpace pour la texture
+      }
     );
     this.matcapTextures['steel'] = loader.load(
-      basePath + '3B3C3F_DAD9D5_929290_ABACA8-256px.png'
+      basePath + '3B3C3F_DAD9D5_929290_ABACA8-256px.png',
+      (texture) => {
+        texture.colorSpace = THREE.SRGBColorSpace; // Utiliser sRGBColorSpace pour la texture
+      }
     );
     this.matcapTextures['silver'] = loader.load(
-      basePath + '736655_D9D8D5_2F281F_B1AEAB-256px.png'
+      basePath + '736655_D9D8D5_2F281F_B1AEAB-256px.png',
+      (texture) => {
+        texture.colorSpace = THREE.SRGBColorSpace; // Utiliser sRGBColorSpace pour la texture
+      }
     );
   }
 
@@ -58,15 +68,15 @@ export class ConfigurateurComponent implements OnInit, AfterViewInit {
 
     // Ajouter des lumières à la scène
     const ambientLight = new THREE.AmbientLight(0x404040, 1.5); // lumière douce
-    this.scene.add(ambientLight);
+    //this.scene.add(ambientLight);
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5); // lumière directionnelle
     directionalLight.position.set(2, 4, 0).normalize();
 
     const directionalLight2 = directionalLight.clone();
     directionalLight2.position.set(-2, -4, 0).normalize();
-    this.scene.add(directionalLight2);
-    this.scene.add(directionalLight);
+    //this.scene.add(directionalLight2);
+    //this.scene.add(directionalLight);
 
     const container = document.getElementById('three-container');
     if (container) {
@@ -79,6 +89,7 @@ export class ConfigurateurComponent implements OnInit, AfterViewInit {
       this.camera.position.z = 4;
 
       this.renderer = new THREE.WebGLRenderer({ alpha: true });
+      this.renderer.outputColorSpace = THREE.SRGBColorSpace; // Utiliser sRGBColorSpace
       this.renderer.setSize(container.clientWidth, container.clientHeight);
       container.appendChild(this.renderer.domElement);
 
