@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./connexion.component.scss'],
 })
 export class ConnexionComponent {
-  user = new User('', '', '', '', '', 0);
+  user = new User('', '', '', '', '', false);
   auth = new Auth('', '');
   login: string = '';
   mot_de_passe: string = '';
@@ -28,27 +28,37 @@ export class ConnexionComponent {
 
     this.authsrv.Login(this.auth).subscribe(
       (authResponse) => {
-        this.usersrv.FindByMail(this.auth.login).subscribe(
-          (userResponse) => {
-            sessionStorage.setItem('user', JSON.stringify(userResponse));
-            sessionStorage.setItem('auth', JSON.stringify(this.auth));
-            console.log(userResponse);
-            
-            console.log(this.user);
-            console.log(this.auth);
-            this.router.navigate(['/user']); // Redirige vers la page utilisateur
-          },
-          (error) => {
-            window.alert(
-              'Erreur lors de la récupération des informations utilisateur'
-            );
-            console.error(error);
-          }
-        );
+        if (authResponse) {
+          console.log('Auth response:', authResponse);
+          this.usersrv.FindByMail(this.auth.login).subscribe(
+            (userResponse) => {
+              if (userResponse) {
+                console.log('User response:', userResponse);
+                sessionStorage.setItem('user', JSON.stringify(userResponse));
+                sessionStorage.setItem('auth', JSON.stringify(this.auth));
+                this.router.navigate(['/user']); // Redirige vers la page utilisateur
+              } else {
+                console.error('User not found');
+                window.alert(
+                  'Erreur lors de la récupération des informations utilisateur'
+                );
+              }
+            },
+            (error) => {
+              console.error('Error finding user', error);
+              window.alert(
+                'Erreur lors de la récupération des informations utilisateur'
+              );
+            }
+          );
+        } else {
+          console.error('Invalid login');
+          window.alert('Login ou mot de passe incorrect');
+        }
       },
       (error) => {
+        console.error('Error during login', error);
         window.alert('Login ou mot de passe incorrect');
-        console.error(error);
       }
     );
   }

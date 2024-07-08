@@ -11,7 +11,7 @@ import { Auth } from 'src/app/services/auth';
   styleUrls: ['./inscription.component.scss'],
 })
 export class InscriptionComponent {
-  user = new User('', '', '', '', '', 0);
+  user = new User('', '', '', '', '', false);
   auth = new Auth('', '');
   rand = 'eeee';
   inscriptionForm: FormGroup;
@@ -45,12 +45,12 @@ export class InscriptionComponent {
 
   register() {
     if (this.inscriptionForm.valid) {
-      this.user.nom = this.inscriptionForm.value.nom;
-      this.user.prenom = this.inscriptionForm.value.prenom;
-      this.user.mail = this.inscriptionForm.value.mail;
-      this.user.telephone = this.inscriptionForm.value.telephone;
-      this.user.adresse_postale = this.inscriptionForm.value.adresse_postale;
-      this.user.isAdmin = 0;
+      this.user.Nom = this.inscriptionForm.value.nom;
+      this.user.Prenom = this.inscriptionForm.value.prenom;
+      this.user.Mail = this.inscriptionForm.value.mail;
+      this.user.Telephone = this.inscriptionForm.value.telephone;
+      this.user.AdressePostale = this.inscriptionForm.value.adresse_postale;
+      this.user.IsAdmin = false;
       this.auth.login = this.inscriptionForm.value.mail;
       this.auth.mot_de_passe = this.inscriptionForm.value.password;
       sessionStorage.setItem('user', JSON.stringify(this.user));

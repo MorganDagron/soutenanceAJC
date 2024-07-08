@@ -7,6 +7,7 @@ import { User } from '../pages/user/user';
   providedIn: 'root',
 })
 export class ServiceCrudUserService {
+  private apiUrl = 'http://localhost:46926/api/users';
   constructor(private http: HttpClient) {}
   httpOptions = {
     headers: new HttpHeaders({
@@ -15,10 +16,7 @@ export class ServiceCrudUserService {
   };
 
   FindByMail(mail: string): Observable<User> {
-    return this.http.get<User>(
-      'http://localhost:46926/api/users/' + mail,
-      this.httpOptions
-    );
+    return this.http.get<User>(`${this.apiUrl}?mail=${mail}`, this.httpOptions);
   }
 
   UpdateUser(data: any): Observable<any> {
@@ -30,9 +28,9 @@ export class ServiceCrudUserService {
     );
   }
 
-  DeleteUser(id: number): Observable<any> {
+  DeleteUser(mail: string): Observable<any> {
     return this.http.delete(
-      'http://localhost:46926/api/users/' + id,
+      'http://localhost:46926/api/users?mail=' + mail,
       this.httpOptions
     );
   }

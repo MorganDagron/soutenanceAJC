@@ -7,6 +7,7 @@ import { Auth } from './auth';
   providedIn: 'root',
 })
 export class ServiceCrudAuthService {
+  private apiUrl = 'http://localhost:46926/api/Authentification';
   constructor(private http: HttpClient) {}
   httpOptions = {
     headers: new HttpHeaders({
@@ -43,10 +44,6 @@ export class ServiceCrudAuthService {
 
   Login(data: Auth): Observable<any> {
     const body = JSON.stringify(data);
-    return this.http.post(
-      'http://localhost:46926/api/Authentification/login',
-      body,
-      this.httpOptions
-    );
+    return this.http.post<any>(`${this.apiUrl}/login`, body, this.httpOptions);
   }
 }

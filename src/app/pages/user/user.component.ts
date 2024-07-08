@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../user/user';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ServiceCrudUserService } from 'src/app/services/service-crud-user.service';
 
 @Component({
@@ -8,29 +7,40 @@ import { ServiceCrudUserService } from 'src/app/services/service-crud-user.servi
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
 })
-export class UserComponent {
-  user = new User('', '', '', '', '', 0);
-  id: number = 0;
-  nom: string = '';
-  prenom: string = '';
-  mail: string = '';
-  telephone: string = '';
-  adresse_postale: string = '';
-  isAdmin: number = 0;
-  constructor(private srv: ServiceCrudUserService) {}
+export class UserComponent implements OnInit {
+  user: User = new User('', '', '', '', '', false);
+
+  constructor(private usersrv: ServiceCrudUserService) {}
+
   ngOnInit(): void {
-    let str = sessionStorage.getItem('user');
-    this.user = JSON.parse(str as string);
-    let id = this.user.id;
-    let nom = this.user.nom;
-    let prenom = this.user.prenom;
-    let email = this.user.mail;
-    let telephone = this.user.telephone;
-    let adresse = this.user.adresse_postale;
-    let isAdmin = this.user.isAdmin;
+    const str = sessionStorage.getItem('user');
+    if (str) {
+      console.log('le STR : ' + str);
+      this.user = JSON.parse(str);
+      console.log('Utilisateur chargé :', this.user);
+
+      // Ajoutez des logs pour vérifier les données
+      console.log('Nom: ', this.user.Nom);
+      console.log('Prenom: ', this.user.Prenom);
+      console.log('Mail: ', this.user.Mail);
+      console.log('Telephone: ', this.user.Telephone);
+      console.log('Adresse Postale: ', this.user.AdressePostale);
+    } else {
+      console.error(
+        'Aucune information utilisateur trouvée dans le sessionStorage'
+      );
+    }
   }
 
   deleteUser() {
-    this.srv.DeleteUser(this.id);
+    this.usersrv.DeleteUser(this.user.Mail).subscribe(
+      (response) => {
+        console.log('Utilisateur supprimé avec succès', response);
+        // Ajoutez ici toute logique supplémentaire après la suppression
+      },
+      (error) => {
+        console.error("Erreur lors de la suppression de l'utilisateur", error);
+      }
+    );
   }
 }
