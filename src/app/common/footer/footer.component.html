@@ -1,19 +1,25 @@
 <footer class="footer">
         <nav  class="footer-nav__left">
-            <h3>Collections</h3>
+            <h3>
+                <a [routerLink]="['/collection']">Collections</a>
+            </h3>
             <ul>
-                <li><a href="">Bagues</a></li>
-                <li><a href="">Pendentifs</a></li>
-                <li><a href="">Boucles d'oreilles</a></li>
+                <li><a href="" class="footer__link">Bagues</a></li>
+                <li><a href="" class="footer__link">Pendentifs</a></li>
+                <li><a href="" class="footer__link">Boucles d'oreilles</a></li>
+                <li><a href="" class="footer__link">Bracelets</a></li>
+                <li><a href="" class="footer__link">Broches</a></li>
+                <li><a href="" class="footer__link">Parures</a></li>
+                <li><a href="" class="footer__link">Divers</a></li>
             </ul>
         </nav>
-        <nav  class="footer-nav__left">
+        <nav  class="footer-nav__right">
             <ul>
-                <li><a href="">Configurateur</a></li> 
-                <li><a href="">Blog</a></li> 
-                <li><a href="">A propos</a></li> 
-                <li><a href="">Mentions légales</a></li> 
-                <li><a href="">Confidentialité</a></li> 
+                <li><a [routerLink]="['/configurateur']" class="footer__link">Configurateur</a></li> 
+                <li><a [routerLink]="['/blog']" class="footer__link">Blog</a></li> 
+                <li><a [routerLink]="['/apropos']" class="footer__link">A propos</a></li> 
+                <li><a href="" class="footer__link">Mentions légales</a></li> 
+                <li><a href="" class="footer__link">Confidentialité</a></li> 
             </ul>
         </nav>
 </footer>

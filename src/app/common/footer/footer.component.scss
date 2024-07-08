@@ -1,6 +1,58 @@
 @import '../../../styles.scss';
 
 .footer {
-    padding: 30px;
+    display: flex;
+    padding: 30px 50px;
     background-color: $black;
-}
+    gap: 30px;
+
+    h3 {
+        color: $laiton;
+    }
+
+    // partie gauche footer - collections
+    &-nav__left {
+        width: 400px;
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        li {
+            width: 50%;
+        }
+    }
+
+    &__link {
+        font-weight: 600;
+        color: white;
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        &:visited {
+            color: white;
+        }
+        &:focus,
+        &:hover {
+            color: $laiton;
+        }
+    }
+
+    // reste ul 
+    ul {
+        padding: 0;
+    }
+
+    // partie droite footer 
+    &-nav__right {
+        width: calc(100% - 400px);
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+    }
+
+} 
