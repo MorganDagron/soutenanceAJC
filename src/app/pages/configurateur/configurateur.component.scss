@@ -23,9 +23,10 @@
 .inscription {
   width: 100%;
   max-width: 400px;
+  margin: 40px 40px;
 
   .h1 {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     background: linear-gradient(
       to right,
       #e6c776,
@@ -63,7 +64,8 @@
     width: 400px;
     height: 55px;
     font-size: 2rem;
-    border: none 2px;
+    border: none ;
+    border-radius: 10px;
     background-color: #e6c776;
   }
 
