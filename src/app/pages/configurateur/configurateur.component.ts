@@ -21,6 +21,7 @@ export class ConfigurateurComponent implements OnInit, AfterViewInit {
   modelGroup!: THREE.Group;
   clock: THREE.Clock;
   orbitControls!: OrbitControls;
+  matcapTextures: { [key: string]: THREE.Texture } = {};
 
   constructor(private objLoaderService: ObjLoaderService) {
     this.clock = new THREE.Clock();
@@ -28,6 +29,7 @@ export class ConfigurateurComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.initThreeJS();
+    this.loadMatcapTextures(); // Charger les textures MatCap
     this.loadModel();
   }
 
@@ -36,25 +38,40 @@ export class ConfigurateurComponent implements OnInit, AfterViewInit {
     window.addEventListener('resize', this.onWindowResize.bind(this));
   }
 
+  loadMatcapTextures(): void {
+    const loader = new THREE.TextureLoader();
+    const basePath = '/assets/models3d/';
+
+    this.matcapTextures['gold'] = loader.load(
+      basePath + 'E6BF3C_5A4719_977726_FCFC82-256px.png'
+    );
+    this.matcapTextures['steel'] = loader.load(
+      basePath + '3B3C3F_DAD9D5_929290_ABACA8-256px.png'
+    );
+    this.matcapTextures['silver'] = loader.load(
+      basePath + '736655_D9D8D5_2F281F_B1AEAB-256px.png'
+    );
+  }
+
   initThreeJS(): void {
     this.scene = new THREE.Scene();
 
     // Ajouter des lumières à la scène
-    const ambientLight = new THREE.AmbientLight(0x404040, 10); // lumière douce
+    const ambientLight = new THREE.AmbientLight(0x404040, 1.5); // lumière douce
     this.scene.add(ambientLight);
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 6.5); // lumière directionnelle
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5); // lumière directionnelle
     directionalLight.position.set(2, 4, 0).normalize();
-    
+
     const directionalLight2 = directionalLight.clone();
     directionalLight2.position.set(-2, -4, 0).normalize();
     this.scene.add(directionalLight2);
     this.scene.add(directionalLight);
 
     const container = document.getElementById('three-container');
-    if (container) { 
+    if (container) {
       this.camera = new THREE.PerspectiveCamera(
-        120,
+        60,
         container.clientWidth / container.clientHeight,
         0.1,
         1000
@@ -103,7 +120,7 @@ export class ConfigurateurComponent implements OnInit, AfterViewInit {
 
   loadModel(): void {
     const filepath = `/assets/models3d/${this.generateFilename()}`;
-    console.log('Attempting to load model from:', filepath); // Journal de débogage
+    console.log('Attempting to load model from:', filepath);
     this.objLoaderService
       .loadObj(filepath)
       .then((object) => {
@@ -137,22 +154,16 @@ export class ConfigurateurComponent implements OnInit, AfterViewInit {
   getMaterial(): THREE.Material {
     switch (this.material) {
       case 'gold':
-        return new THREE.MeshStandardMaterial({
-          color: 0xffd700,
-          roughness: 0.1,
-          metalness: 0.9,
+        return new THREE.MeshMatcapMaterial({
+          matcap: this.matcapTextures['gold'],
         });
       case 'steel':
-        return new THREE.MeshStandardMaterial({
-          color: 0xdee0eb,
-          roughness: 0.1,
-          metalness: 0.9,
+        return new THREE.MeshMatcapMaterial({
+          matcap: this.matcapTextures['steel'],
         });
       case 'silver':
-        return new THREE.MeshStandardMaterial({
-          color: 0xf7f7f8,
-          roughness: 0.1,
-          metalness: 0.9,
+        return new THREE.MeshMatcapMaterial({
+          matcap: this.matcapTextures['silver'],
         });
       default:
         return new THREE.MeshStandardMaterial({
