@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { User } from '../user/user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { ServiceCrudUserService } from 'src/app/services/service-crud-user.service';
+import { ServiceCrudAuthService } from 'src/app/services/service-crud-auth.service';
+import { Auth } from 'src/app/services/auth';
 
 @Component({
   selector: 'app-inscription',
@@ -9,46 +11,24 @@ import { Router, RouterLink } from '@angular/router';
   styleUrls: ['./inscription.component.scss'],
 })
 export class InscriptionComponent {
-  user = new User('', '', '', '');
+  user = new User('', '', '', '', '', 0);
+  auth = new Auth('', '');
+  rand = 'sss';
   inscriptionForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private usersrv: ServiceCrudUserService,
+    private authsrv: ServiceCrudAuthService
+  ) {
     this.inscriptionForm = this.fb.group({
-      nom: ['', 
-        //[Validators.required]
-      ],
-      prenom: ['', 
-        //Validators.required
-      ],
-      email: ['', 
-        //[Validators.required, Validators.email]
-        ],
-      telephone: [
-        '',
-        // [
-        //   Validators.required,
-        //   Validators.pattern('^[0-9]*$'),
-        //   Validators.maxLength(10),
-        //   Validators.minLength(10),
-        // ],
-      ],
-      password: [
-        '',
-        // [
-        //   Validators.required,
-        //   Validators.minLength(6),
-        //   Validators.maxLength(20),
-        // ],
-      ],
-      confirmpassword: [
-        '',
-        // Validators.required,
-        // [
-        //   Validators.required,
-        //   Validators.minLength(6),
-        //   Validators.maxLength(20),
-        // ],
-      ],
+      nom: [this.rand],
+      prenom: [this.rand],
+      mail: [this.rand],
+      telephone: [this.rand],
+      adresse_postale: [this.rand],
+      password: [this.rand],
+      confirmpassword: [this.rand],
     });
   }
 
@@ -67,10 +47,19 @@ export class InscriptionComponent {
     if (this.inscriptionForm.valid) {
       this.user.nom = this.inscriptionForm.value.nom;
       this.user.prenom = this.inscriptionForm.value.prenom;
-      this.user.email = this.inscriptionForm.value.email;
+      this.user.mail = this.inscriptionForm.value.mail;
       this.user.telephone = this.inscriptionForm.value.telephone;
+      this.user.adresse_postale = this.inscriptionForm.value.adresse_postale;
+      this.user.isAdmin = 0;
+      this.auth.login = this.inscriptionForm.value.mail;
+      this.auth.mot_de_passe = this.inscriptionForm.value.password;
       sessionStorage.setItem('user', JSON.stringify(this.user));
+      sessionStorage.setItem('auth', JSON.stringify(this.auth));
+      this.authsrv.AddAuth(this.auth);
+      this.usersrv.AddUser(this.user);
       console.log(this.user);
+      console.log(this.auth);
+
       this.inscriptionForm.reset();
     } else {
       this.inscriptionForm.reset();
