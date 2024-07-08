@@ -1,23 +1,31 @@
 <div class="page__panier">
-    <h1 class="gradient-title">Votre Panier</h1>
+   
 
     <div class="panier-main">
-        
+        <h1 class="gradient-title">Mon Panier</h1>
+        <hr>
         <div class="panier__liste" *ngIf="panier.length > 0">
-            <h2 class="panier-main__title">Votre panier contient {{panier.length}} article<span *ngIf="panier.length >1">(s)</span></h2>
+            <!-- <h2 class="panier-main__title">Votre panier contient {{panier.length}} article<span *ngIf="panier.length >1">(s)</span></h2> -->
             <div class="panier-main__produit" *ngFor="let produit of panier">
 
                 <article class="article"> 
-                    <div class="ctn-img">
-                        <img [src]="produit.image" alt="Image de {{produit.titre}}">
-                    </div>
-                    <div class="ctn-infos">
-                        <h3 class="article__title">{{produit.nom}}</h3> 
-                        <p class="article__recap">
-                            <span class="white">{{produit.taille}} - {{produit.matiere}} </span> - <span class="article__prix"> {{produit.prix}}</span>
-                        </p>                       
-                        <button >Supprimer</button>
-                    </div>
+                    <div class="article__left">
+                        <div class="ctn-img">
+                            <img [src]="produit.image" alt="Image de {{produit.titre}}">
+                        </div>
+                        <div class="ctn-infos-produit">
+                            <p class="article__title">{{produit.nom}}</p> 
+                            <p>{{produit.matiere}}</p>
+                            <p>{{produit.taille}}</p>
+                        </div> 
+                    </div> 
+                    <p class="article__prix-u">{{produit.prix}}</p>
+                    <button class="btn-supprimer">Supprimer
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                          </svg>
+                    </button>
                 </article>
 
             </div>
@@ -29,6 +37,24 @@
     </div>
     
     <div class="panier-aside">
-        <div class="prix"></div>
+
+        <div class="flex-between panier-recap">
+            <span class="txt-gold">Total</span>
+            <span class="nb-article">{{panier.length}} Article<span *ngIf="panier.length > 1">(s)</span>
+            </span>
+        </div>
+        <hr>
+        <div class="flex-between panier-ttc">
+            <span class="title-section">Montant TTC</span><span class="prix">650€</span>
+        </div>
+        <div class="flex-between livraison-ttc">
+            <span class="title-section">Livraison</span> <span class="prix">20€</span>
+        </div>
+        <hr>
+        <div class="flex-between total">
+            <span class="title-section">Total (port inclus)</span> <span class="prix">670€</span>
+        </div>
+
+        <button class="button">Commander</button>
     </div>
 </div>

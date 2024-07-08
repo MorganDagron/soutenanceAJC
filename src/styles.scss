@@ -183,6 +183,10 @@ p {
   font-size: 5rem;
 }
 
+.txt-gold {
+  color: $laiton;
+}
+
 nav a,
 footer,
 blockquote,
@@ -281,6 +285,10 @@ input {
   &::placeholder {
     color: white;
   }
+}
+
+button {
+  border: none;
 }
 
 
