@@ -1,1 +1,51 @@
-@import '../../../styles.scss';
+@import "../../../styles.scss";
+
+.wrapper-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  width: 100vw;
+}
+
+.user {
+  width: 100%;
+  max-width: 700px;
+
+  .h1 {
+    background: linear-gradient(
+      to right,
+      #e6c776,
+      #bb9d56,
+      #886c31,
+      #d1ad5b,
+      #886c31
+    );
+  }
+
+  &__ctn-input {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 70%;
+    label {
+      margin-bottom: 15px;
+      color: #e6c776;
+      font-size: 2rem;
+    }
+    input {
+      color: white;
+      font-size: 2rem;
+    }
+  }
+}
+
+button {
+  width: 80%;
+  max-width: 300px;
+  margin: 20px auto;
+  font-size: 2rem;
+  font-weight: bold;
+}

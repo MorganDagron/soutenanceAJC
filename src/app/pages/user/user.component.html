@@ -1,28 +1,28 @@
-<div class="container">
+<div class="container ">
   <h1 class="gradient-title bigtitle">My Profile</h1>
 </div>
-<div class="container glassmorphism">
-  <div class="inscription__ctn-input">
+<div class="container wrapper-user glassmorphism">
+  <div class=" user__ctn-input">
     <label for="nom">Nom</label>
     <input type="text" id="nom" [(ngModel)]="user.Nom" />
   </div>
 
-  <div class="inscription__ctn-input">
+  <div class="user__ctn-input">
     <label for="prenom">Prenom</label>
     <input type="text" id="prenom" [(ngModel)]="user.Prenom" />
   </div>
 
-  <div class="inscription__ctn-input">
+  <div class="user__ctn-input">
     <label for="telephone">Telephone</label>
     <input type="text" id="telephone" [(ngModel)]="user.Telephone" />
   </div>
 
-  <div class="inscription__ctn-input">
+  <div class="user__ctn-input">
     <label for="mail">Email :</label>
     <input type="text" id="mail" [(ngModel)]="user.Mail" placeholder="Email" />
   </div>
 
-  <div class="inscription__ctn-input">
+  <div class="user__ctn-input">
     <label for="adresse_postale">Adresse Postale :</label>
     <input
       type="text"
@@ -33,7 +33,7 @@
   </div>
 
   <div>
-    <button class="button">Mettre à jour</button>
+    <button class="button" (click)="updateUser()">Mettre à jour</button>
     <button class="button-secondary" (click)="deleteUser()">
       Supprimer mon compte
     </button>

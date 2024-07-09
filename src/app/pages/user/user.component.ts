@@ -20,11 +20,11 @@ export class UserComponent implements OnInit {
       console.log('Utilisateur chargé :', this.user);
 
       // Ajoutez des logs pour vérifier les données
-      console.log('Nom: ', this.user.Nom);
-      console.log('Prenom: ', this.user.Prenom);
-      console.log('Mail: ', this.user.Mail);
-      console.log('Telephone: ', this.user.Telephone);
-      console.log('Adresse Postale: ', this.user.AdressePostale);
+      // console.log('Nom: ', this.user.Nom);
+      // console.log('Prenom: ', this.user.Prenom);
+      // console.log('Mail: ', this.user.Mail);
+      // console.log('Telephone: ', this.user.Telephone);
+      // console.log('Adresse Postale: ', this.user.AdressePostale);
     } else {
       console.error(
         'Aucune information utilisateur trouvée dans le sessionStorage'
@@ -40,6 +40,20 @@ export class UserComponent implements OnInit {
       },
       (error) => {
         console.error("Erreur lors de la suppression de l'utilisateur", error);
+      }
+    );
+  }
+
+  updateUser(){
+    console.log(this.user);
+    
+    this.usersrv.UpdateUser(this.user).subscribe(
+      (response) => {
+        console.log('Utilisateur mis à jour avec succès', response);
+        // Ajoutez ici toute logique supplémentaire après la mise à jour
+      },
+      (error) => {
+        console.error("Erreur lors de la mise à jour de l'utilisateur", error);
       }
     );
   }
