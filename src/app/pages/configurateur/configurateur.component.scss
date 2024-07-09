@@ -1,7 +1,15 @@
 @import "../../../styles.scss";
 
+.page__configurateur {
+
+}
+
+.ctn-title {
+  margin: 70px auto 30px auto;
+}
+
+
 .gradient-title {
-  margin-top: 60px;
   font-size: 4rem;
 }
 
@@ -20,7 +28,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+  min-height: 65vh;
   width: 1200px;
   margin: 0 auto 100px auto;
 }
@@ -28,7 +36,7 @@
 .configurateur {
   width: 100%;
   max-width: 300px;
-  margin: 20px 40px;
+  margin: 0px 40px;
 
   &__ctn-input {
     display: flex;
@@ -37,7 +45,7 @@
 
     label {
       color: white;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       margin-bottom: 5px;
     }
   }
@@ -54,7 +62,7 @@
   select,
   input {
     width: 100%;
-    height: 45px;
+    height: 40px;
     padding-left: 20px;
     font-size: 2rem;
     border: none ;
