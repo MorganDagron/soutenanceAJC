@@ -17,16 +17,16 @@
                             <p class="categorie">Collection : {{article.categorie}}</p>
                             <p class="article__title">{{article.nom}}</p> 
                             <ng-container [ngSwitch]="article.matiere_id">
-                                <p class="white" *ngSwitchCase="1">Matière :  Acier</p>
-                                <p class="white" *ngSwitchCase="2">Matière :  Or</p>
-                                <p class="white" *ngSwitchCase="3">Matière :  Argent</p>
-                                <p class="white"*ngSwitchCase="4">Matière :  Or</p>
-                                <p class="white" *ngSwitchDefault>Matière :  Acier</p>
+                                <p class="article__matiere white" *ngSwitchCase="1">Matière :  Acier</p>
+                                <p class="article__matiere white" *ngSwitchCase="2">Matière :  Or</p>
+                                <p class="article__matiere white" *ngSwitchCase="3">Matière :  Argent</p>
+                                <p class="article__matiere white"*ngSwitchCase="4">Matière :  Or</p>
+                                <p class="article__matiere white" *ngSwitchDefault>Matière :  Acier</p>
                             </ng-container>
                             <!-- <p class="white">Taille : {{article.taille_id}}</p> -->
                         </div> 
                     </div> 
-                    <!-- <p class="article__prix-u">{{produit.prix}}</p> -->
+                    <p class="article__prix"><span class="small">à partir de </span> {{article.prix}} €</p>
                     <button class="btn-supprimer" (click)="supprimerArticle(article)" >
                         Supprimer
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">

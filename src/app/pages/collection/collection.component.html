@@ -34,12 +34,12 @@
                         <p class="white"*ngSwitchCase="4">Matière :  Or</p>
                         <p class="white" *ngSwitchDefault>Matière :  Acier</p>
                     </ng-container>
+                    <p class="article__prix"><span class="small">à partir de </span> {{article.prix}} €</p>
                     <!-- <p class="white">Taille : {{article.taille_id}}</p> -->
                 </div> 
                 <button class="button-secondary" (click)="addToSession(article)">Commander</button>
                 
             </div>
-            <!-- <p class="article__prix"></p> -->
         </article>
 
     </div>
