@@ -4,22 +4,29 @@
     <div class="panier-main">
         <h1 class="gradient-title">Mon Panier</h1>
         <hr>
-        <div class="panier__liste" *ngIf="panier.length > 0">
+        <div class="panier__liste" *ngIf="panier.length > 0; else panierVide">
             <!-- <h2 class="panier-main__title">Votre panier contient {{panier.length}} article<span *ngIf="panier.length >1">(s)</span></h2> -->
-            <div class="panier-main__produit" *ngFor="let produit of panier">
+            <div class="panier-main__produit" *ngFor="let article of panier">
 
                 <article class="article"> 
                     <div class="article__left">
                         <div class="ctn-img">
-                            <img [src]="produit.image" alt="Image de {{produit.titre}}">
+                            <img src="./assets/img/bijoux/bijou{{article.id}}.jpeg" alt="Image de {{article.nom}}" width="200">
                         </div>
                         <div class="ctn-infos-produit">
-                            <p class="article__title">{{produit.nom}}</p> 
-                            <p>{{produit.matiere}}</p>
-                            <p>{{produit.taille}}</p>
+                            <p class="categorie">Collection : {{article.categorie}}</p>
+                            <p class="article__title">{{article.nom}}</p> 
+                            <ng-container [ngSwitch]="article.matiere_id">
+                                <p class="white" *ngSwitchCase="1">Matière :  Acier</p>
+                                <p class="white" *ngSwitchCase="2">Matière :  Or</p>
+                                <p class="white" *ngSwitchCase="3">Matière :  Argent</p>
+                                <p class="white"*ngSwitchCase="4">Matière :  Or</p>
+                                <p class="white" *ngSwitchDefault>Matière :  Acier</p>
+                            </ng-container>
+                            <!-- <p class="white">Taille : {{article.taille_id}}</p> -->
                         </div> 
                     </div> 
-                    <p class="article__prix-u">{{produit.prix}}</p>
+                    <!-- <p class="article__prix-u">{{produit.prix}}</p> -->
                     <button class="btn-supprimer">Supprimer
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
@@ -31,9 +38,12 @@
             </div>
         </div> 
 
-        <div class="panier-main__title" *ngIf="panier.length == 0">
-            <h2>Votre panier est vide</h2>
-        </div>
+        <ng-template #panierVide>
+            <div class="panier-main__title">
+                <h2>Votre panier est vide</h2>
+            </div>
+        </ng-template>
+     
     </div>
     
     <div class="panier-aside">

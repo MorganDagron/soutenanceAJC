@@ -97,7 +97,22 @@ export class CollectionComponent {
       (err) => { console.log("Erreur fetch articles") }
     );
   }
-
  
+  // Ajout du produit à la session
+  addToSession(article: any): void {
+    console.log('Article ajouté à la session:', article);
+
+    // Vérifie si le panier existe déjà dans le sessionStorage
+    let panier = sessionStorage.getItem('panier');
+    if (panier) {
+      let panierArray = JSON.parse(panier);
+      panierArray.push(article);
+      sessionStorage.setItem('panier', JSON.stringify(panierArray));
+    } else {
+      sessionStorage.setItem('panier', JSON.stringify([article]));
+    }
+  }
+
+
 
 }

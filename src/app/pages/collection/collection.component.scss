@@ -41,8 +41,11 @@
     &__right {
         display: flex;
         align-items: flex-start;
-        gap: 140px;
         padding: 20px;
+    }
+    
+    .ctn-infos-produit {
+        width: 300px;
     }
 
     .ctn-recap {
