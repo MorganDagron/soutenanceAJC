@@ -65,5 +65,23 @@ export class PanierComponent {
     }
   }
 
+  supprimerArticle(articleASupprimer: any): void {
+    // Récupère le panier depuis le sessionStorage
+    let panier = sessionStorage.getItem('panier');
+    if (panier) {
+      let panierArray = JSON.parse(panier);
+      // Trouve l'index de l'article à supprimer
+      const index = panierArray.findIndex((article: any) => article.id === articleASupprimer.id);
+      if (index > -1) {
+        // Supprime l'article du tableau
+        panierArray.splice(index, 1);
+        // Sauvegarde le nouveau panier dans le sessionStorage
+        sessionStorage.setItem('panier', JSON.stringify(panierArray));
+        // Met à jour le panier dans le composant
+        this.panier = panierArray;
+      }
+    }
+  }
+
 
 }
