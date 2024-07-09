@@ -83,5 +83,13 @@ export class PanierComponent {
     }
   }
 
+  calculateTotalPrice(){
+    let totalPrice = 0;
+    for (let article of this.panier) {
+      totalPrice += parseFloat(article.prix);
+    }
+    return totalPrice;
+  }
+
 
 }

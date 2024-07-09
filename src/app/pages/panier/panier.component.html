@@ -58,10 +58,9 @@
         </div>
         <hr>
         <div class="flex-between panier-ttc" *ngIf="panier.length > 0;">
-            <!-- <span class="title-section">Montant TTC</span><span class="prix">650€</span> -->
-            <span class="title-section">Montant TTC</span><span class="prix">selon devis</span>
+            <span class="title-section">Montant TTC</span><span class="prix">{{ calculateTotalPrice() }}€</span>
             <ng-template #panierVide>
-                --
+            --
             </ng-template>
         </div>
         <div class="flex-between livraison-ttc">
@@ -70,7 +69,7 @@
         <hr>
         <div class="flex-between total">
             <!-- <span class="title-section">Total (port inclus)</span> <span class="prix">670€</span> -->
-            <span class="title-section">Total (port inclus)</span> <span class="prix">--</span>
+            <span class="title-section">Total (estimé)</span> <span class="prix">{{ calculateTotalPrice() + 20 }}€</span>
         </div>
 
         <!-- <button class="button">Commander</button> -->
