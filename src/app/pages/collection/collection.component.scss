@@ -28,12 +28,21 @@
     align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 50px;
-    gap: 80px;
+    border: 1px solid $laiton;
+    border-radius: 10px;
+    overflow: hidden;
 
     &__left {
         display: flex;
         align-items: flex-start;
         gap: 20px;
+    }
+
+    &__right {
+        display: flex;
+        align-items: flex-start;
+        gap: 140px;
+        padding: 20px;
     }
 
     .ctn-recap {
