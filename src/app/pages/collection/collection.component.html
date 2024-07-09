@@ -1,6 +1,7 @@
 <div class="page__collection">
     <div class="list-articles">
-        <article class="article" *ngFor="let article of listeBijoux"> 
+
+        <!-- <article class="article" *ngFor="let article of listeBijoux"> 
             <div class="article__left">
                 <div class="ctn-img">
                     <img src="./assets/img/bijoux/bijou{{article.id}}.jpeg" alt="Image de {{article.nom}}" width="200">
@@ -13,6 +14,29 @@
                 </div> 
             </div> 
             <p class="article__prix">{{article.prix}}€</p>
+        </article> -->
+
+        <article class="article" *ngFor="let article of list"> 
+            <div class="article__left">
+                <div class="ctn-img">
+                    <img src="./assets/img/bijoux/bijou{{article.id}}.jpeg" alt="Image de {{article.nom}}" width="200">
+                </div>
+                <div class="ctn-infos-produit">
+                    <p class="categorie">Collection : {{article.categorie}}</p>
+                    <p class="article__title">{{article.nom}}</p> 
+                    <ng-container [ngSwitch]="article.matiere_id">
+                        <p class="white" *ngSwitchCase="1">Matière :  Acier</p>
+                        <p class="white" *ngSwitchCase="2">Matière :  Or</p>
+                        <p class="white" *ngSwitchCase="3">Matière :  Argent</p>
+                        <p class="white"*ngSwitchCase="4">Matière :  Or</p>
+                        <p class="white" *ngSwitchDefault>Matière :  Acier</p>
+                    </ng-container>
+                    <!-- <p class="white">Taille : {{article.taille_id}}</p> -->
+                </div> 
+            </div> 
+            <!-- <p class="article__prix"></p> -->
+             <button class="button-secondary">Commander</button>
         </article>
+
     </div>
 </div>
